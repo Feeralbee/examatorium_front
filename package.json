@@ -1,0 +1,41 @@
+{
+  "name": "examatorium_front",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/electron.js",
+  "scripts": {
+    "electron": "cross-env IS_DEV=true electron .",
+    "electron-vite": "concurrently -k \"npm run dev\" \"npm run electron\"",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "generate-client": "openapi-ts --input http://185.247.185.176:8000/openapi.json --output ./src/client --client axios"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.29.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "sass": "^1.75.0"
+  },
+  "devDependencies": {
+    "@tanstack/router-devtools": "^1.29.2",
+    "@tanstack/router-vite-plugin": "^1.30.0",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^30.0.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
