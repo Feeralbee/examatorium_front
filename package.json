@@ -14,14 +14,17 @@
     "generate-client": "openapi-ts --input http://185.247.185.176:8000/openapi.json --output ./src/client --client axios"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.32.0",
     "@tanstack/react-router": "^1.29.2",
+    "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.75.0",
     "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^4.3.2",
-    "sass": "^1.75.0"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
+    "@hey-api/openapi-ts": "^0.42.1",
     "@tanstack/router-devtools": "^1.29.2",
     "@tanstack/router-vite-plugin": "^1.30.0",
     "@types/react": "^18.2.66",
