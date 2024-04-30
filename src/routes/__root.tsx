@@ -1,12 +1,19 @@
-import Menu from '@components/menu';
-import { createRootRoute, Outlet } from '@tanstack/react-router';
+import Menu from "@components/menu";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import "@styles/root_route.scss";
 
 
-export const Route = createRootRoute({
-  component: () => (
+const RootPage = () => {
+  return(
     <>
       <Menu />
-      <Outlet />
+      <div id="app-container">
+        <Outlet />
+      </div>
     </>
-  ),
+  );
+}
+
+export const Route = createRootRoute({
+  component: RootPage,
 });

@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    svgr(),
+    svgr({ include: '**/*.svg' }),
     TanStackRouterVite(),
 ],
 })

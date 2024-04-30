@@ -1,6 +1,4 @@
 .menu{
-
-    
     position: fixed;
     top: 0;
     bottom: 0;
@@ -20,11 +18,12 @@
         width: 100%;
         padding: 10px;
         display: flex;
+        gap: 5px;
         align-items: center;
         text-decoration: none;
         outline: none;
         font-size: 1.3em;
-        font-weight: 500;
+        font-weight: 400;
         color: #305F5A;
         font-family: "Roboto";
         &:hover{
@@ -32,6 +31,14 @@
         }
         &-active{
             color: #000;
+            &:hover{
+                color:#000;
+                cursor: default;
+            }
+        }
+        img {
+            aspect-ratio: 1/1;
+            width: 1.3em;
         }
     }
 }

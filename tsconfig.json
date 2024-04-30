@@ -5,9 +5,10 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -25,10 +26,11 @@
     "paths": {
       "@assests/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@client/*": ["src/client/*"],
+      "@client": ["src/client"],
       "@hooks/*": ["src/hooks/*"],
       "@routes/*": ["src/routes/*"],
       "@styles/*": ["src/styles/*"],
+      "@misc/*": ["src/misc/*"],
     }
   },
   "include": ["src"],

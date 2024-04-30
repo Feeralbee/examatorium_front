@@ -1,51 +1,11 @@
 import React from "react";
-import LogoSm from "@assests/logo_sm.svg?react";
+import LogoSm from "@assests/logo_sm.svg";
 import "@styles/menu.scss";
 import { Link } from "@tanstack/react-router";
+import menuItems, {MenuItem} from "@misc/menu_items";
 
-type MenuItem = {
-  name: string;
-  link: string;
-};
 
-const menuItems: MenuItem[] = [
-  {
-    name: "Пользователи",
-    link: "",
-  },
-  {
-    name: "Дисциплины",
-    link: "/disciplines",
-  },
-  {
-    name: "Темы",
-    link: "",
-  },
-  {
-    name: "Экзамены",
-    link: "",
-  },
-  {
-    name: "Квал. Экзамены",
-    link: "",
-  },
-  {
-    name: "Группы",
-    link: "",
-  },
-  {
-    name: "Квалификации",
-    link: "",
-  },
-  {
-    name: "Компетенции",
-    link: "",
-  },
-  {
-    name: "Члены квал. комисии",
-    link: "",
-  },
-];
+
 
 const Menu = () => {
   const [selectedMenuItem, setSelectedMenuItem] =
@@ -53,13 +13,14 @@ const Menu = () => {
   return (
     <div className="menu">
       <LogoSm />
-      {menuItems.map((menuItem, index) => (
+      {menuItems.adminMenuItems.map((menuItem, index) => (
         <Link
           key={`menu-item-index-${index}`}
           to={menuItem.link}
           className="menu-item"
           activeProps={{className: "menu-item-active",}}
         >
+          <img src={menuItem.icon} />
           {menuItem.name}
         </Link>
       ))}
