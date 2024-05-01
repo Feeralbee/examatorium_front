@@ -5,12 +5,14 @@ const isDev = process.env.IS_DEV === "true";
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow();
+  const mainWindow = new BrowserWindow({
+    minWidth: 1000,
+    minHeight: 700,
+    backgroundColor: "#ebebeb",
+  });
 
   // and load the index.html of the app.
   mainWindow.loadURL(isDev ? "http://localhost:7000" : "file://index.html");
-
-  mainWindow.maximize();
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
