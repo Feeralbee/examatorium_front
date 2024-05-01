@@ -5,7 +5,7 @@ export type CreateUserRequest = {
     name: string;
     surname: string;
     patronymic?: string | null;
-    role: string;
+    role: UserRoles;
     password: string;
 };
 
@@ -19,7 +19,7 @@ export type UpdateUserRequest = {
     name?: string | null;
     surname?: string | null;
     patronymic?: string | null;
-    role?: string | null;
+    role?: UserRoles | null;
     is_blocked?: boolean | null;
     password?: string | null;
 };
@@ -30,10 +30,12 @@ export type UserDomainEntity = {
     name: string;
     surname: string;
     patronymic?: string | null;
-    role: string;
+    role: UserRoles;
     is_blocked: boolean;
     password: string;
 };
+
+export type UserRoles = 'student' | 'teacher' | 'admin';
 
 export type ValidationError = {
     loc: Array<(string | number)>;

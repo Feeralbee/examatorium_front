@@ -26,8 +26,7 @@ export const $CreateUserRequest = {
             title: 'Patronymic'
         },
         role: {
-            type: 'string',
-            title: 'Role'
+            '$ref': '#/components/schemas/UserRoles'
         },
         password: {
             type: 'string',
@@ -106,13 +105,12 @@ export const $UpdateUserRequest = {
         role: {
             anyOf: [
                 {
-                    type: 'string'
+                    '$ref': '#/components/schemas/UserRoles'
                 },
                 {
                     type: 'null'
                 }
-            ],
-            title: 'Role'
+            ]
         },
         is_blocked: {
             anyOf: [
@@ -179,8 +177,7 @@ export const $UserDomainEntity = {
             title: 'Patronymic'
         },
         role: {
-            type: 'string',
-            title: 'Role'
+            '$ref': '#/components/schemas/UserRoles'
         },
         is_blocked: {
             type: 'boolean',
@@ -194,6 +191,12 @@ export const $UserDomainEntity = {
     type: 'object',
     required: ['id', 'login', 'name', 'surname', 'role', 'is_blocked', 'password'],
     title: 'UserDomainEntity'
+} as const;
+
+export const $UserRoles = {
+    type: 'string',
+    enum: ['student', 'teacher', 'admin'],
+    title: 'UserRoles'
 } as const;
 
 export const $ValidationError = {
