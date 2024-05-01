@@ -1,0 +1,20 @@
+.auth-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    input {
+      width: 100%;
+    }
+  }
+  width: 50%;
+}
+
+.auth-button {
+  background-color: rgba(43, 127, 118, 0.7) !important;
+  color: #fff;
+  &:hover {
+    background-color: rgba(43, 127, 118, 1) !important;
+  }
+}
