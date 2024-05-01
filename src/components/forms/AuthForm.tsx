@@ -7,6 +7,7 @@ import {
 import { Store, iNotification } from "react-notifications-component";
 import "@styles/AuthForm.scss"
 import Button from "@components/Button";
+import Input from "@components/Input";
 
 
 type AuthFormInputs = {
@@ -17,7 +18,6 @@ type AuthFormInputs = {
 const errorNotification = (
   errors: FieldErrors<AuthFormInputs>
 ): iNotification => {
-  console.log(errors);
   let message: string = "";
   if (errors.login && errors.password) message = "Введите логин и пароль";
   else if (errors.login) message = "Введите логин";
@@ -37,7 +37,7 @@ const errorNotification = (
   };
 };
 
-const onSubmit: SubmitHandler<AuthFormInputs> = () => {};
+const onSubmit: SubmitHandler<AuthFormInputs> = (data) => {console.log(data)};
 const onError: SubmitErrorHandler<AuthFormInputs> = (data) =>
   Store.addNotification(errorNotification(data));
 
@@ -47,8 +47,8 @@ export default function AuthForm() {
     <div className="auth-form">
       <h1>Авторизация</h1>
       <form onSubmit={handleSubmit(onSubmit, onError)}>
-        <input {...register("login", { required: true })} />
-        <input {...register("password", { required: true })} />
+        <Input {...register("login", {required: true})} label="Логин" />
+        <Input {...register("password", {required: true})} label="Пароль" type="password" />
         <Button className="auth-button" type="submit">Войти</Button>
       </form>
     </div>
