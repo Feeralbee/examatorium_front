@@ -1,4 +1,4 @@
-import MenuItem from "./menu_item";
+import MenuItem from "./MenuItem";
 
 
 const teacherMenuItems: MenuItem[] = [

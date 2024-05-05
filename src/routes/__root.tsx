@@ -1,4 +1,4 @@
-import Menu from "@components/menu";
+import Menu from "@components/Menu";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import "@styles/root_route.scss";
 import { useQueryClient } from "@tanstack/react-query";
