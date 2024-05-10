@@ -63,7 +63,7 @@ export type $OpenApiTs = {
                 /**
                  * Successful Response
                  */
-                200: UserDomainEntity | string;
+                200: UserDomainEntity;
                 /**
                  * Validation Error
                  */
@@ -96,7 +96,7 @@ export type $OpenApiTs = {
                 /**
                  * Successful Response
                  */
-                200: UserDomainEntity | string;
+                200: UserDomainEntity;
                 /**
                  * Validation Error
                  */

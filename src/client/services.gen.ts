@@ -22,7 +22,7 @@ export class UsersService {
      * Get User By Id
      * @param data The data for the request.
      * @param data.userId
-     * @returns unknown Successful Response
+     * @returns UserDomainEntity Successful Response
      * @throws ApiError
      */
     public static getUserByIdUsersUserIdGet(data: $OpenApiTs['/users/{user_id}']['get']['req']): CancelablePromise<$OpenApiTs['/users/{user_id}']['get']['res'][200]> {
@@ -63,7 +63,7 @@ export class UsersService {
      * @param data The data for the request.
      * @param data.login
      * @param data.password
-     * @returns unknown Successful Response
+     * @returns UserDomainEntity Successful Response
      * @throws ApiError
      */
     public static getUserByAuthorizationUsersGet(data: $OpenApiTs['/users']['get']['req']): CancelablePromise<$OpenApiTs['/users']['get']['res'][200]> {
