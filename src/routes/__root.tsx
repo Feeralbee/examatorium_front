@@ -1,26 +1,18 @@
 import Menu from "@components/Menu";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import "@styles/root_route.scss";
-import { useQueryClient } from "@tanstack/react-query";
-import { authQueryKey } from "@constants/queryKeys";
-import Auth from "@components/Auth";
-
+import { AuthMiddleware } from "@middlewares";
 
 const RootPage = () => {
-  const queryClient = useQueryClient();
-  const userData = queryClient.getQueryData(authQueryKey);
-  if (!userData){
-    return <Auth />
-  }
-  return(
-    <>
-      <Menu />
-      <div id="app-container">
-        <Outlet />
-      </div>
-    </>
+  return (
+    <AuthMiddleware>
+        <Menu />
+        <div id="app-container">
+          <Outlet />
+        </div>
+    </AuthMiddleware>
   );
-}
+};
 
 export const Route = createRootRoute({
   component: RootPage,

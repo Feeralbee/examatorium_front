@@ -2,7 +2,7 @@ import LogoSm from "@assests/logo_sm.svg";
 import "@styles/menu.scss";
 import { Link } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { authQueryKey } from "@constants/queryKeys";
+import { authQueryKey } from "@misc/queryKeys";
 import { UserDomainEntity } from "@client";
 import {getRoleMenuItems} from "@misc/menu_items";
 

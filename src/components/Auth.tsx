@@ -1,5 +1,6 @@
 import "@styles/auth.scss";
-import AuthForm from "@components/forms/AuthForm";
+import AuthForm from "@components/forms/AuthForm/AuthForm";
+
 
 export default function Auth() {
   return (
