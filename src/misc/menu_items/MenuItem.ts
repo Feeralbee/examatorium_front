@@ -1,6 +1,8 @@
+import { RoutePath } from "@misc/types";
+
 type MenuItem = {
     name: string;
-    link: string;
+    link: RoutePath;
     icon: string;
 };
 

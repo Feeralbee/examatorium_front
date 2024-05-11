@@ -1,6 +1,6 @@
-import { UserAuthData } from "@misc/types";
+import { UserDomainEntity } from "@client";
 import { Store } from "@tanstack/react-store";
 
-const UserDataStore = new Store<UserAuthData | undefined>(undefined)
+const UserDataStore = new Store<UserDomainEntity | null>(null);
 
 export default UserDataStore;

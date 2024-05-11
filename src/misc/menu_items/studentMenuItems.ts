@@ -4,12 +4,12 @@ import MenuItem from "./MenuItem";
 const studentMenuItems: MenuItem[] = [
   {
     name: "Экзамены",
-    link: "/exams",
+    link: "/student/exams",
     icon: "../src/assets/menu_icons/exams.svg",
   },
   {
     name: "Титульные листы",
-    link: "/title_pages",
+    link: "/student/title_pages",
     icon: "",
   },
 ];

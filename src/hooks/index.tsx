@@ -1,3 +1,3 @@
-import useGetUserByAuth from "./useGetUserByAuth";
+import useAuth from "./useAuth";
 
-export {useGetUserByAuth};
+export {useAuth};

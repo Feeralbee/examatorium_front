@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 const teacherMenuItems: MenuItem[] = [
   {
     name: "Экзамены",
-    link: "/exams",
+    link: "/teacher/exams",
     icon: "../src/assets/menu_icons/exams.svg",
   },
 ];

@@ -1,29 +1,42 @@
 import LogoSm from "@assests/logo_sm.svg";
 import "@styles/menu.scss";
 import { Link } from "@tanstack/react-router";
-import { useQueryClient } from "@tanstack/react-query";
-import { authQueryKey } from "@misc/queryKeys";
-import { UserDomainEntity } from "@client";
-import {getRoleMenuItems} from "@misc/menu_items";
+import { getRoleMenuItems } from "@misc/menu_items";
+import { parseUserFullName } from "@misc/utils";
+import userRolesLocalies from "@constants/userRolesLocalies";
+import ExitIcon from "@assests/icons/exit.svg";
+import UserDataStore from "@misc/stores/UserDataStore";
+import { useAuth } from "@hooks";
 
 
 const Menu = () => {
-  const queryClient = useQueryClient();
-  const userData: UserDomainEntity | undefined = queryClient.getQueryData(authQueryKey);
+  const auth = useAuth();
   return (
     <div className="menu">
       <LogoSm />
-      {getRoleMenuItems(userData?.role).map((menuItem, index) => (
-        <Link
-          key={`menu-item-index-${index}`}
-          to={menuItem.link}
-          className="menu-item"
-          activeProps={{className: "menu-item-active",}}
-        >
-          <img src={menuItem.icon} />
-          {menuItem.name}
+      <div>
+        {getRoleMenuItems(UserDataStore.state?.role).map((menuItem, index) => (
+          <Link
+            key={`menu-item-index-${index}`}
+            to={menuItem.link}
+            className="menu-item"
+            activeProps={{ className: "menu-item-active" }}
+          >
+            <img src={menuItem.icon} />
+            {menuItem.name}
+          </Link>
+        ))}
+      </div>
+      <div className="menu-lower-block">
+        <div className="menu-user-info">
+          {parseUserFullName(UserDataStore.state)}
+          <br />
+          Роль: {!!UserDataStore.state?.role && userRolesLocalies[UserDataStore.state?.role]}
+        </div>
+        <Link to={"/login"} onClick={auth.logout}>
+          <ExitIcon />
         </Link>
-      ))}
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@
     width: 300px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 10px 25px 20px 30px;
     box-sizing: border-box;
 
@@ -15,6 +16,7 @@
     }
 
     &-item{
+        align-self: flex-start;
         width: 100%;
         padding: 10px;
         display: flex;
@@ -40,5 +42,23 @@
             aspect-ratio: 1/1;
             width: 1.3em;
         }
+    }
+
+    &-lower-block{
+        display: flex;
+        font-size: 13px;
+        padding: 10px;
+        border-top: 1px solid black;
+        align-items: center;
+        justify-content: space-between;
+        svg{
+            width: 30px;
+            height: 30px;
+            margin: 0;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
     }
 }

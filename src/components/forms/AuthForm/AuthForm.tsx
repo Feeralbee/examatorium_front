@@ -4,22 +4,22 @@ import Button from "@components/Button";
 import Input from "@components/Input";
 import { UserAuthData } from "@misc/types";
 import * as handlers from "./handlers";
-import { useGetUserByAuth } from "@hooks";
+import { useAuth } from "@hooks";
 import { Store } from "react-notifications-component";
 import { notFoundError } from "./notifications";
 import { useEffect } from "react";
 
 export default function AuthForm() {
   const { handleSubmit, register } = useForm<UserAuthData>();
-  const query = useGetUserByAuth();
+  const auth = useAuth();
   const onSubmit = handleSubmit(
-    (data) => handlers.onSubmit(query, data),
+    (data) => handlers.onSubmit(auth, data),
     handlers.onError
   );
   useEffect(() => {
-    if (query.error?.message === "Not Found")
+    if (auth.query.error?.message === "Not Found")
       Store.addNotification(notFoundError);
-  }, [query.error]);
+  }, [auth.query.error]);
   return (
     <div className="auth-form">
       <h1>Авторизация</h1>
@@ -33,9 +33,9 @@ export default function AuthForm() {
         <Button
           className="auth-button"
           type="submit"
-          disabled={query.isFetching}
+          disabled={auth.query.isFetching}
         >
-          {query.isFetching ? "..." : "Войти"}
+          {auth.query.isFetching ? "..." : "Войти"}
         </Button>
       </form>
     </div>
