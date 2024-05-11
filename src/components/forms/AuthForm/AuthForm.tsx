@@ -14,7 +14,7 @@ export default function AuthForm() {
   const auth = useAuth();
   const onSubmit = handleSubmit(
     (data) => handlers.onSubmit(auth, data),
-    handlers.onError
+    handlers.onError,
   );
   useEffect(() => {
     if (auth.query.error?.message === "Not Found")

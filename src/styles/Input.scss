@@ -28,7 +28,7 @@
     position: absolute;
     top: 17px;
     left: 10px;
-    transition: .1s linear;
+    transition: 0.1s linear;
   }
 
   input:focus + &-label,
@@ -44,7 +44,7 @@
   input::placeholder {
     background-color: transparent;
   }
-  
+
   input:focus {
     outline: none;
   }

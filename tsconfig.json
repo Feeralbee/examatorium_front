@@ -31,9 +31,9 @@
       "@routes/*": ["src/routes/*"],
       "@styles/*": ["src/styles/*"],
       "@misc/*": ["src/misc/*"],
-      "@constants/*": ["src/constants/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute } from "@tanstack/react-router";
 
-export const Route = createLazyFileRoute('/_auth/student/exams')({
-  component: () => <div>Hello /_auth/student/exams!</div>
-})
+export const Route = createLazyFileRoute("/_auth/student/exams")({
+  component: () => <div>Hello /_auth/student/exams!</div>,
+});

@@ -1,3 +1,3 @@
-import {getRoleMenuItems} from "./RoleMenuItems";
+import { getRoleMenuItems } from "./RoleMenuItems";
 
-export {getRoleMenuItems};
+export { getRoleMenuItems };

@@ -1,12 +1,11 @@
 @use "variables";
 
-
 .auth-container {
   $width: 0.5;
   $minWidth: variables.$windowMinWidth * $width;
   $maxWidth: variables.$windowMaxWidth * $width;
   width: clamp($minWidth, 100vw * $width, $maxWidth);
-  background-color: #60BFB5;
+  background-color: #60bfb5;
   border-radius: 12px;
   aspect-ratio: 1/0.7;
   position: absolute;
@@ -24,5 +23,3 @@
     aspect-ratio: 1/1;
   }
 }
-
-

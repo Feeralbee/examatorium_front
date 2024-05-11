@@ -8,7 +8,6 @@ import ExitIcon from "@assests/icons/exit.svg";
 import UserDataStore from "@misc/stores/UserDataStore";
 import { useAuth } from "@hooks";
 
-
 const Menu = () => {
   const auth = useAuth();
   return (
@@ -31,7 +30,9 @@ const Menu = () => {
         <div className="menu-user-info">
           {parseUserFullName(UserDataStore.state)}
           <br />
-          Роль: {!!UserDataStore.state?.role && userRolesLocalies[UserDataStore.state?.role]}
+          Роль:{" "}
+          {!!UserDataStore.state?.role &&
+            userRolesLocalies[UserDataStore.state?.role]}
         </div>
         <Link to={"/login"} onClick={auth.logout}>
           <ExitIcon />

@@ -1,6 +1,5 @@
 import MenuItem from "./MenuItem";
 
-
 const teacherMenuItems: MenuItem[] = [
   {
     name: "Экзамены",

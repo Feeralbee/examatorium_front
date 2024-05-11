@@ -31,8 +31,8 @@ const useAuth = (): UseAuthReturn => {
 
   useEffect(() => {
     if (query.data) {
-        UserDataStore.setState(()=> query.data);
-        navigate({to: `/${query.data.role}`,});
+      UserDataStore.setState(() => query.data);
+      navigate({ to: `/${query.data.role}` });
     }
   }, [query.data]);
 
@@ -43,10 +43,10 @@ const useAuth = (): UseAuthReturn => {
   const logout = () => {
     queryClient.clear();
     setAuthData(null);
-    UserDataStore.setState(()=> null);
+    UserDataStore.setState(() => null);
   };
 
-  return { login, logout, query};
+  return { login, logout, query };
 };
 
 export default useAuth;

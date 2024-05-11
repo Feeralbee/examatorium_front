@@ -1,6 +1,1 @@
-
-
-
-export default function AuthProvider () {
-
-}; 
+export default function AuthProvider() {}

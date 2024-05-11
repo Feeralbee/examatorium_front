@@ -1,64 +1,63 @@
-.menu{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 300px;
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 25px 20px 30px;
+  box-sizing: border-box;
+
+  svg {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &-item {
+    align-self: flex-start;
+    width: 100%;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+    outline: none;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: #305f5a;
+    font-family: "Roboto";
+    &:hover {
+      color: #7abfb8;
+    }
+    &-active {
+      color: #000;
+      &:hover {
+        color: #000;
+        cursor: default;
+      }
+    }
+    img {
+      aspect-ratio: 1/1;
+      width: 1.3em;
+    }
+  }
+
+  &-lower-block {
+    display: flex;
+    font-size: 13px;
+    padding: 10px;
+    border-top: 1px solid black;
+    align-items: center;
     justify-content: space-between;
-    padding: 10px 25px 20px 30px;
-    box-sizing: border-box;
-
-    svg{
-        width: 100%;
-        margin-bottom: 10px;
+    svg {
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
     }
-
-    &-item{
-        align-self: flex-start;
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        text-decoration: none;
-        outline: none;
-        font-size: 1.3em;
-        font-weight: 400;
-        color: #305F5A;
-        font-family: "Roboto";
-        &:hover{
-            color: #7ABFB8;
-        }
-        &-active{
-            color: #000;
-            &:hover{
-                color:#000;
-                cursor: default;
-            }
-        }
-        img {
-            aspect-ratio: 1/1;
-            width: 1.3em;
-        }
-    }
-
-    &-lower-block{
-        display: flex;
-        font-size: 13px;
-        padding: 10px;
-        border-top: 1px solid black;
-        align-items: center;
-        justify-content: space-between;
-        svg{
-            width: 30px;
-            height: 30px;
-            margin: 0;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-
-    }
+  }
 }
