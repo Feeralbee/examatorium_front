@@ -30,7 +30,7 @@ const useAuth = (): UseAuthReturn => {
   }, [authData]);
 
   useEffect(() => {
-    if (query.data) {
+    if (query.data && !query.data?.is_blocked) {
       UserDataStore.setState(() => query.data);
       navigate({ to: `/${query.data.role}` });
     }
