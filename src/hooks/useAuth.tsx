@@ -1,5 +1,5 @@
 import { UsersService } from "@client";
-import { authQueryKey } from "@misc/queryKeys";
+import queryKeys from "@misc/queryKeys";
 import UserDataStore from "@misc/stores/UserDataStore";
 import { UserAuthData, UseAuthReturn } from "@misc/types";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -12,7 +12,7 @@ const useAuth = (): UseAuthReturn => {
   const queryClient = useQueryClient();
 
   const query = useQuery({
-    queryKey: authQueryKey,
+    queryKey: queryKeys.auth,
     queryFn: async () => {
       if (authData)
         return UsersService.getUserByAuthorizationUsersGet(authData);

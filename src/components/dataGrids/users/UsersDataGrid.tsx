@@ -1,13 +1,13 @@
 import { DataGrid } from "@mui/x-data-grid";
 import usersGridColumns from "./usersGridColumns";
 import { useQuery } from "@tanstack/react-query";
-import { allUsersQueryKey } from "@misc/queryKeys";
+import queryKeys from "@misc/queryKeys";
 import { UsersService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
 
 export default function UsersDataGrid() {
   const query = useQuery({
-    queryKey: allUsersQueryKey,
+    queryKey: queryKeys.allUsers,
     queryFn: () => UsersService.getAllUsersUsersAllGet(),
     initialData: [],
   });
