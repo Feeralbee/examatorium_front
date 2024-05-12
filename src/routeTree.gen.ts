@@ -43,6 +43,9 @@ const AuthAdminDisciplinesLazyImport = createFileRoute(
 const AuthAdminCompetenciesLazyImport = createFileRoute(
   '/_auth/admin/competencies',
 )()
+const AuthAdminEditUsersLazyImport = createFileRoute(
+  '/_auth/admin/edit/users',
+)()
 
 // Create/Update Routes
 
@@ -160,6 +163,13 @@ const AuthAdminCompetenciesLazyRoute = AuthAdminCompetenciesLazyImport.update({
   import('./routes/_auth/admin/competencies.lazy').then((d) => d.Route),
 )
 
+const AuthAdminEditUsersLazyRoute = AuthAdminEditUsersLazyImport.update({
+  path: '/admin/edit/users',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/edit/users.lazy').then((d) => d.Route),
+)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -232,6 +242,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthTeacherIndexLazyImport
       parentRoute: typeof AuthLazyImport
     }
+    '/_auth/admin/edit/users': {
+      preLoaderRoute: typeof AuthAdminEditUsersLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
   }
 }
 
@@ -254,6 +268,7 @@ export const routeTree = rootRoute.addChildren([
     AuthAdminIndexLazyRoute,
     AuthStudentIndexLazyRoute,
     AuthTeacherIndexLazyRoute,
+    AuthAdminEditUsersLazyRoute,
   ]),
   LoginLazyRoute,
 ])
