@@ -13,6 +13,11 @@ export type HTTPValidationError = {
   detail?: Array<ValidationError>;
 };
 
+export type UpdateUserPasswordRequest = {
+  id: string;
+  password: string;
+};
+
 export type UpdateUserRequest = {
   id: string;
   login?: string | null;
@@ -21,7 +26,6 @@ export type UpdateUserRequest = {
   patronymic?: string | null;
   role?: UserRoles | null;
   is_blocked?: boolean | null;
-  password?: string | null;
 };
 
 export type UserDomainEntity = {
@@ -121,6 +125,23 @@ export type $OpenApiTs = {
     patch: {
       req: {
         requestBody: UpdateUserRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: UserDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/users/password": {
+    patch: {
+      req: {
+        requestBody: UpdateUserPasswordRequest;
       };
       res: {
         /**

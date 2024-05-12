@@ -129,4 +129,25 @@ export class UsersService {
       },
     });
   }
+
+  /**
+   * Update User Password
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns UserDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateUserPasswordUsersPasswordPatch(
+    data: $OpenApiTs["/users/password"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/users/password"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/users/password",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
 }

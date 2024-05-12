@@ -52,6 +52,22 @@ export const $HTTPValidationError = {
   title: "HTTPValidationError",
 } as const;
 
+export const $UpdateUserPasswordRequest = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    password: {
+      type: "string",
+      title: "Password",
+    },
+  },
+  type: "object",
+  required: ["id", "password"],
+  title: "UpdateUserPasswordRequest",
+} as const;
+
 export const $UpdateUserRequest = {
   properties: {
     id: {
@@ -122,17 +138,6 @@ export const $UpdateUserRequest = {
         },
       ],
       title: "Is Blocked",
-    },
-    password: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
-      title: "Password",
     },
   },
   type: "object",
