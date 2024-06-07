@@ -1,21 +1,26 @@
 import { DataGrid } from "@mui/x-data-grid";
-import usersGridColumns from "./usersGridColumns";
+import qualificationsGridColumns from "./qualificationsGridColumns";
 import { useQuery } from "@tanstack/react-query";
 import queryKeys from "@misc/queryKeys";
-import { UsersService } from "@client";
+import { QualificationsService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
 
-export default function UsersDataGrid() {
+export default function QualificationsDataGrid() {
   const query = useQuery({
-    queryKey: queryKeys.allUsers,
-    queryFn: () => UsersService.getAllUsersUsersAllGet(),
+    queryKey: queryKeys.allQualifications,
+    queryFn: () => QualificationsService.allQualificationsAllGet(),
     initialData: [],
   });
   const navigate = useNavigate();
   return (
     <DataGrid
-      sx={{ "--DataGrid-overlayHeight": "300px" }}
-      columns={usersGridColumns}
+      sx={{
+        "--DataGrid-overlayHeight": "300px",
+        [`& .MuiDataGrid-cell`]: {
+          p: 2,
+        },
+      }}
+      columns={qualificationsGridColumns}
       rows={query.data}
       loading={query.isFetching}
       initialState={{
@@ -32,13 +37,15 @@ export default function UsersDataGrid() {
         expand: true,
         outliersFactor: 1,
       }}
-      autoHeight
       pageSizeOptions={[10, 20, 40]}
       disableRowSelectionOnClick
+      autoHeight
+      getRowHeight={() => "auto"}
+      getEstimatedRowHeight={() => 200}
       onRowClick={(params) => {
         navigate({
-          to: "/admin/info/user",
-          search: { ...params.row, password: undefined },
+          to: "/admin/info/qualification",
+          search: params.row,
         });
       }}
     />

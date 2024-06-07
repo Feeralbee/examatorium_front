@@ -1,21 +1,21 @@
 import { DataGrid } from "@mui/x-data-grid";
-import usersGridColumns from "./usersGridColumns";
+import qualExamsGridColumns from "./qualExamsGridColumns";
 import { useQuery } from "@tanstack/react-query";
 import queryKeys from "@misc/queryKeys";
-import { UsersService } from "@client";
+import { QualExamsService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
 
-export default function UsersDataGrid() {
+export default function QualExamsDataGrid() {
   const query = useQuery({
-    queryKey: queryKeys.allUsers,
-    queryFn: () => UsersService.getAllUsersUsersAllGet(),
+    queryKey: queryKeys.allQualExams,
+    queryFn: () => QualExamsService.allQualExamsAllGet(),
     initialData: [],
   });
   const navigate = useNavigate();
   return (
     <DataGrid
       sx={{ "--DataGrid-overlayHeight": "300px" }}
-      columns={usersGridColumns}
+      columns={qualExamsGridColumns}
       rows={query.data}
       loading={query.isFetching}
       initialState={{
@@ -32,13 +32,13 @@ export default function UsersDataGrid() {
         expand: true,
         outliersFactor: 1,
       }}
-      autoHeight
       pageSizeOptions={[10, 20, 40]}
       disableRowSelectionOnClick
+      autoHeight
       onRowClick={(params) => {
         navigate({
-          to: "/admin/info/user",
-          search: { ...params.row, password: undefined },
+          to: "/admin/info/qual_exam",
+          search: params.row,
         });
       }}
     />

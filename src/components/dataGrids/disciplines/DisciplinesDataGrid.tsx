@@ -1,21 +1,21 @@
 import { DataGrid } from "@mui/x-data-grid";
-import usersGridColumns from "./usersGridColumns";
+import disciplinesGridColumns from "./disciplinesGridColumns";
 import { useQuery } from "@tanstack/react-query";
 import queryKeys from "@misc/queryKeys";
-import { UsersService } from "@client";
+import { DisciplinesService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
 
-export default function UsersDataGrid() {
+export default function DisciplinesDataGrid() {
   const query = useQuery({
-    queryKey: queryKeys.allUsers,
-    queryFn: () => UsersService.getAllUsersUsersAllGet(),
+    queryKey: queryKeys.allDisciplines,
+    queryFn: () => DisciplinesService.allDisciplinesAllGet(),
     initialData: [],
   });
   const navigate = useNavigate();
   return (
     <DataGrid
       sx={{ "--DataGrid-overlayHeight": "300px" }}
-      columns={usersGridColumns}
+      columns={disciplinesGridColumns}
       rows={query.data}
       loading={query.isFetching}
       initialState={{
@@ -32,13 +32,13 @@ export default function UsersDataGrid() {
         expand: true,
         outliersFactor: 1,
       }}
-      autoHeight
       pageSizeOptions={[10, 20, 40]}
       disableRowSelectionOnClick
+      autoHeight
       onRowClick={(params) => {
         navigate({
-          to: "/admin/info/user",
-          search: { ...params.row, password: undefined },
+          to: "/admin/info/discipline",
+          search: params.row,
         });
       }}
     />

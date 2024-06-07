@@ -1,3 +1,5 @@
+import { UserDomainEntity } from "@client";
+import userRolesLocalies from "@constants/userRolesLocalies";
 import { GridColDef } from "@mui/x-data-grid";
 
 const usersGridColumns: GridColDef[] = [
@@ -16,6 +18,7 @@ const usersGridColumns: GridColDef[] = [
   {
     field: "role",
     headerName: "Роль",
+    valueGetter: (value, row: UserDomainEntity) => userRolesLocalies[row.role],
   },
   {
     field: "login",

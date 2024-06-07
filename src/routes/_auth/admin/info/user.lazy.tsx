@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Link, createLazyFileRoute } from "@tanstack/react-router";
 import { useForm, Controller } from "react-hook-form";
 
-const EditUser = () => {
+const UserInfo = () => {
   const search: UpdateUserRequest = Route.useSearch();
   const form = useForm<UpdateUserRequest>({ defaultValues: search });
   const mutation = useMutation({
@@ -77,6 +77,6 @@ const EditUser = () => {
   );
 };
 
-export const Route = createLazyFileRoute("/_auth/admin/edit/users")({
-  component: EditUser,
+export const Route = createLazyFileRoute("/_auth/admin/info/user")({
+  component: UserInfo,
 });

@@ -43,8 +43,49 @@ const AuthAdminDisciplinesLazyImport = createFileRoute(
 const AuthAdminCompetenciesLazyImport = createFileRoute(
   '/_auth/admin/competencies',
 )()
-const AuthAdminEditUsersLazyImport = createFileRoute(
-  '/_auth/admin/edit/users',
+const AuthAdminInfoUserLazyImport = createFileRoute('/_auth/admin/info/user')()
+const AuthAdminInfoThemeLazyImport = createFileRoute(
+  '/_auth/admin/info/theme',
+)()
+const AuthAdminInfoQualificationLazyImport = createFileRoute(
+  '/_auth/admin/info/qualification',
+)()
+const AuthAdminInfoQualexamLazyImport = createFileRoute(
+  '/_auth/admin/info/qual_exam',
+)()
+const AuthAdminInfoGroupLazyImport = createFileRoute(
+  '/_auth/admin/info/group',
+)()
+const AuthAdminInfoExamLazyImport = createFileRoute('/_auth/admin/info/exam')()
+const AuthAdminInfoDisciplineLazyImport = createFileRoute(
+  '/_auth/admin/info/discipline',
+)()
+const AuthAdminInfoCompetenceLazyImport = createFileRoute(
+  '/_auth/admin/info/competence',
+)()
+const AuthAdminCreateUserLazyImport = createFileRoute(
+  '/_auth/admin/create/user',
+)()
+const AuthAdminCreateThemeLazyImport = createFileRoute(
+  '/_auth/admin/create/theme',
+)()
+const AuthAdminCreateQualificationLazyImport = createFileRoute(
+  '/_auth/admin/create/qualification',
+)()
+const AuthAdminCreateQualexamLazyImport = createFileRoute(
+  '/_auth/admin/create/qual_exam',
+)()
+const AuthAdminCreateGroupLazyImport = createFileRoute(
+  '/_auth/admin/create/group',
+)()
+const AuthAdminCreateExamLazyImport = createFileRoute(
+  '/_auth/admin/create/exam',
+)()
+const AuthAdminCreateDisciplineLazyImport = createFileRoute(
+  '/_auth/admin/create/discipline',
+)()
+const AuthAdminCreateCompetenceLazyImport = createFileRoute(
+  '/_auth/admin/create/competence',
 )()
 
 // Create/Update Routes
@@ -163,12 +204,126 @@ const AuthAdminCompetenciesLazyRoute = AuthAdminCompetenciesLazyImport.update({
   import('./routes/_auth/admin/competencies.lazy').then((d) => d.Route),
 )
 
-const AuthAdminEditUsersLazyRoute = AuthAdminEditUsersLazyImport.update({
-  path: '/admin/edit/users',
+const AuthAdminInfoUserLazyRoute = AuthAdminInfoUserLazyImport.update({
+  path: '/admin/info/user',
   getParentRoute: () => AuthLazyRoute,
 } as any).lazy(() =>
-  import('./routes/_auth/admin/edit/users.lazy').then((d) => d.Route),
+  import('./routes/_auth/admin/info/user.lazy').then((d) => d.Route),
 )
+
+const AuthAdminInfoThemeLazyRoute = AuthAdminInfoThemeLazyImport.update({
+  path: '/admin/info/theme',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/info/theme.lazy').then((d) => d.Route),
+)
+
+const AuthAdminInfoQualificationLazyRoute =
+  AuthAdminInfoQualificationLazyImport.update({
+    path: '/admin/info/qualification',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/info/qualification.lazy').then((d) => d.Route),
+  )
+
+const AuthAdminInfoQualexamLazyRoute = AuthAdminInfoQualexamLazyImport.update({
+  path: '/admin/info/qual_exam',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/info/qual_exam.lazy').then((d) => d.Route),
+)
+
+const AuthAdminInfoGroupLazyRoute = AuthAdminInfoGroupLazyImport.update({
+  path: '/admin/info/group',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/info/group.lazy').then((d) => d.Route),
+)
+
+const AuthAdminInfoExamLazyRoute = AuthAdminInfoExamLazyImport.update({
+  path: '/admin/info/exam',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/info/exam.lazy').then((d) => d.Route),
+)
+
+const AuthAdminInfoDisciplineLazyRoute =
+  AuthAdminInfoDisciplineLazyImport.update({
+    path: '/admin/info/discipline',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/info/discipline.lazy').then((d) => d.Route),
+  )
+
+const AuthAdminInfoCompetenceLazyRoute =
+  AuthAdminInfoCompetenceLazyImport.update({
+    path: '/admin/info/competence',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/info/competence.lazy').then((d) => d.Route),
+  )
+
+const AuthAdminCreateUserLazyRoute = AuthAdminCreateUserLazyImport.update({
+  path: '/admin/create/user',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/create/user.lazy').then((d) => d.Route),
+)
+
+const AuthAdminCreateThemeLazyRoute = AuthAdminCreateThemeLazyImport.update({
+  path: '/admin/create/theme',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/create/theme.lazy').then((d) => d.Route),
+)
+
+const AuthAdminCreateQualificationLazyRoute =
+  AuthAdminCreateQualificationLazyImport.update({
+    path: '/admin/create/qualification',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/create/qualification.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const AuthAdminCreateQualexamLazyRoute =
+  AuthAdminCreateQualexamLazyImport.update({
+    path: '/admin/create/qual_exam',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/create/qual_exam.lazy').then((d) => d.Route),
+  )
+
+const AuthAdminCreateGroupLazyRoute = AuthAdminCreateGroupLazyImport.update({
+  path: '/admin/create/group',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/create/group.lazy').then((d) => d.Route),
+)
+
+const AuthAdminCreateExamLazyRoute = AuthAdminCreateExamLazyImport.update({
+  path: '/admin/create/exam',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_auth/admin/create/exam.lazy').then((d) => d.Route),
+)
+
+const AuthAdminCreateDisciplineLazyRoute =
+  AuthAdminCreateDisciplineLazyImport.update({
+    path: '/admin/create/discipline',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/create/discipline.lazy').then((d) => d.Route),
+  )
+
+const AuthAdminCreateCompetenceLazyRoute =
+  AuthAdminCreateCompetenceLazyImport.update({
+    path: '/admin/create/competence',
+    getParentRoute: () => AuthLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_auth/admin/create/competence.lazy').then((d) => d.Route),
+  )
 
 // Populate the FileRoutesByPath interface
 
@@ -242,8 +397,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthTeacherIndexLazyImport
       parentRoute: typeof AuthLazyImport
     }
-    '/_auth/admin/edit/users': {
-      preLoaderRoute: typeof AuthAdminEditUsersLazyImport
+    '/_auth/admin/create/competence': {
+      preLoaderRoute: typeof AuthAdminCreateCompetenceLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/discipline': {
+      preLoaderRoute: typeof AuthAdminCreateDisciplineLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/exam': {
+      preLoaderRoute: typeof AuthAdminCreateExamLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/group': {
+      preLoaderRoute: typeof AuthAdminCreateGroupLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/qual_exam': {
+      preLoaderRoute: typeof AuthAdminCreateQualexamLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/qualification': {
+      preLoaderRoute: typeof AuthAdminCreateQualificationLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/theme': {
+      preLoaderRoute: typeof AuthAdminCreateThemeLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/create/user': {
+      preLoaderRoute: typeof AuthAdminCreateUserLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/competence': {
+      preLoaderRoute: typeof AuthAdminInfoCompetenceLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/discipline': {
+      preLoaderRoute: typeof AuthAdminInfoDisciplineLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/exam': {
+      preLoaderRoute: typeof AuthAdminInfoExamLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/group': {
+      preLoaderRoute: typeof AuthAdminInfoGroupLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/qual_exam': {
+      preLoaderRoute: typeof AuthAdminInfoQualexamLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/qualification': {
+      preLoaderRoute: typeof AuthAdminInfoQualificationLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/theme': {
+      preLoaderRoute: typeof AuthAdminInfoThemeLazyImport
+      parentRoute: typeof AuthLazyImport
+    }
+    '/_auth/admin/info/user': {
+      preLoaderRoute: typeof AuthAdminInfoUserLazyImport
       parentRoute: typeof AuthLazyImport
     }
   }
@@ -268,7 +483,22 @@ export const routeTree = rootRoute.addChildren([
     AuthAdminIndexLazyRoute,
     AuthStudentIndexLazyRoute,
     AuthTeacherIndexLazyRoute,
-    AuthAdminEditUsersLazyRoute,
+    AuthAdminCreateCompetenceLazyRoute,
+    AuthAdminCreateDisciplineLazyRoute,
+    AuthAdminCreateExamLazyRoute,
+    AuthAdminCreateGroupLazyRoute,
+    AuthAdminCreateQualexamLazyRoute,
+    AuthAdminCreateQualificationLazyRoute,
+    AuthAdminCreateThemeLazyRoute,
+    AuthAdminCreateUserLazyRoute,
+    AuthAdminInfoCompetenceLazyRoute,
+    AuthAdminInfoDisciplineLazyRoute,
+    AuthAdminInfoExamLazyRoute,
+    AuthAdminInfoGroupLazyRoute,
+    AuthAdminInfoQualexamLazyRoute,
+    AuthAdminInfoQualificationLazyRoute,
+    AuthAdminInfoThemeLazyRoute,
+    AuthAdminInfoUserLazyRoute,
   ]),
   LoginLazyRoute,
 ])

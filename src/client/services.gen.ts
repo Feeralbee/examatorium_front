@@ -151,3 +151,887 @@ export class UsersService {
     });
   }
 }
+
+export class ThemesService {
+  /**
+   * All
+   * @returns ThemeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allThemesAllGet(): CancelablePromise<
+    $OpenApiTs["/themes/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/themes/all",
+    });
+  }
+
+  /**
+   * Theme
+   * @param data The data for the request.
+   * @param data.themeId
+   * @returns ThemeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static themeThemesThemeIdGet(
+    data: $OpenApiTs["/themes/{theme_id}"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/themes/{theme_id}"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/themes/{theme_id}",
+      path: {
+        theme_id: data.themeId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns ThemeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createThemesPost(
+    data: $OpenApiTs["/themes"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/themes"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/themes",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns ThemeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateThemesPatch(
+    data: $OpenApiTs["/themes"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/themes"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/themes",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.themeId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteThemesThemesIdDelete(
+    data: $OpenApiTs["/themes/{themes_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/themes/{themes_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/themes/{themes_id}",
+      query: {
+        theme_id: data.themeId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class ExamsService {
+  /**
+   * All
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allExamsAllGet(): CancelablePromise<
+    $OpenApiTs["/exams/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/all",
+    });
+  }
+
+  /**
+   * Exam
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static examExamsExamIdGet(
+    data: $OpenApiTs["/exams/{exam_id}"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/{exam_id}"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/{exam_id}",
+      path: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteExamsExamIdDelete(
+    data: $OpenApiTs["/exams/{exam_id}"]["delete"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/{exam_id}"]["delete"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/exams/{exam_id}",
+      path: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createExamsPost(
+    data: $OpenApiTs["/exams"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/exams",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateExamsPatch(
+    data: $OpenApiTs["/exams"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/exams",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class QualExamsService {
+  /**
+   * All
+   * @returns QualificationExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allQualExamsAllGet(): CancelablePromise<
+    $OpenApiTs["/qual_exams/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/qual_exams/all",
+    });
+  }
+
+  /**
+   * Exam
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns QualificationExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static examQualExamsExamIdGet(
+    data: $OpenApiTs["/qual_exams/{exam_id}"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/qual_exams/{exam_id}"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/qual_exams/{exam_id}",
+      path: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteQualExamsExamIdDelete(
+    data: $OpenApiTs["/qual_exams/{exam_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/qual_exams/{exam_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/qual_exams/{exam_id}",
+      path: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QualificationExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createQualExamsPost(
+    data: $OpenApiTs["/qual_exams"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/qual_exams"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/qual_exams",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QualificationExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateQualExamsPatch(
+    data: $OpenApiTs["/qual_exams"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/qual_exams"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/qual_exams",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class GroupsService {
+  /**
+   * All Groups
+   * @returns GroupDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allGroupsGroupsAllGet(): CancelablePromise<
+    $OpenApiTs["/groups/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/groups/all",
+    });
+  }
+
+  /**
+   * Add Student
+   * @param data The data for the request.
+   * @param data.groupId
+   * @param data.studentId
+   * @returns GroupDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static addStudentGroupsAddStudentPost(
+    data: $OpenApiTs["/groups/add_student"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups/add_student"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/groups/add_student",
+      query: {
+        group_id: data.groupId,
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Remove Student
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static removeStudentGroupsRemoveStudentPost(
+    data: $OpenApiTs["/groups/remove_student"]["post"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/groups/remove_student"]["post"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/groups/remove_student",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Group
+   * @param data The data for the request.
+   * @param data.groupId
+   * @returns GroupDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static groupGroupsGroupIdGet(
+    data: $OpenApiTs["/groups/{group_id}"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups/{group_id}"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/groups/{group_id}",
+      path: {
+        group_id: data.groupId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.groudId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteGroupsGroupIdDelete(
+    data: $OpenApiTs["/groups/{group_id}"]["delete"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups/{group_id}"]["delete"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/groups/{group_id}",
+      query: {
+        groud_id: data.groudId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns GroupDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createGroupsPost(
+    data: $OpenApiTs["/groups"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/groups",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns GroupDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateGroupsPatch(
+    data: $OpenApiTs["/groups"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/groups",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class QuestionsService {
+  /**
+   * All
+   * @returns QuestionDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allQuestionsAllGet(): CancelablePromise<
+    $OpenApiTs["/questions/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/questions/all",
+    });
+  }
+
+  /**
+   * Question
+   * @param data The data for the request.
+   * @param data.questionId
+   * @returns QuestionDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static questionQuestionsQuestionIdGet(
+    data: $OpenApiTs["/questions/{question_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/questions/{question_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/questions/{question_id}",
+      path: {
+        question_id: data.questionId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.questionId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteQuestionsQuestionIdDelete(
+    data: $OpenApiTs["/questions/{question_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/questions/{question_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/questions/{question_id}",
+      path: {
+        question_id: data.questionId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QuestionDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createQuestionsPost(
+    data: $OpenApiTs["/questions"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/questions"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/questions",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QuestionDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateQuestionsPatch(
+    data: $OpenApiTs["/questions"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/questions"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/questions",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class CompetenciesService {
+  /**
+   * All
+   * @returns CompetenceDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allCompetenciesAllGet(): CancelablePromise<
+    $OpenApiTs["/competencies/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/competencies/all",
+    });
+  }
+
+  /**
+   * Competence
+   * @param data The data for the request.
+   * @param data.competenceId
+   * @returns CompetenceDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static competenceCompetenciesCompetenceIdGet(
+    data: $OpenApiTs["/competencies/{competence_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/competencies/{competence_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/competencies/{competence_id}",
+      path: {
+        competence_id: data.competenceId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.competenceId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteCompetenciesCompetenceIdDelete(
+    data: $OpenApiTs["/competencies/{competence_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/competencies/{competence_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/competencies/{competence_id}",
+      path: {
+        competence_id: data.competenceId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CompetenceDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createCompetenciesPost(
+    data: $OpenApiTs["/competencies"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/competencies"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/competencies",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CompetenceDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateCompetenciesPatch(
+    data: $OpenApiTs["/competencies"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/competencies"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/competencies",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class DisciplinesService {
+  /**
+   * All
+   * @returns DisciplineDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allDisciplinesAllGet(): CancelablePromise<
+    $OpenApiTs["/disciplines/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/disciplines/all",
+    });
+  }
+
+  /**
+   * Discipline
+   * @param data The data for the request.
+   * @param data.disciplineId
+   * @returns DisciplineDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static disciplineDisciplinesDisciplineIdGet(
+    data: $OpenApiTs["/disciplines/{discipline_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/disciplines/{discipline_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/disciplines/{discipline_id}",
+      path: {
+        discipline_id: data.disciplineId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.disciplineId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteDisciplinesDisciplineIdDelete(
+    data: $OpenApiTs["/disciplines/{discipline_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/disciplines/{discipline_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/disciplines/{discipline_id}",
+      path: {
+        discipline_id: data.disciplineId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns DisciplineDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createDisciplinesPost(
+    data: $OpenApiTs["/disciplines"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/disciplines"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/disciplines",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns DisciplineDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateDisciplinesPatch(
+    data: $OpenApiTs["/disciplines"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/disciplines"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/disciplines",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class QualificationsService {
+  /**
+   * All
+   * @returns QualificationDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allQualificationsAllGet(): CancelablePromise<
+    $OpenApiTs["/qualifications/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/qualifications/all",
+    });
+  }
+
+  /**
+   * Qualification
+   * @param data The data for the request.
+   * @param data.qualificationId
+   * @returns QualificationDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static qualificationQualificationsQualificationIdGet(
+    data: $OpenApiTs["/qualifications/{qualification_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/qualifications/{qualification_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/qualifications/{qualification_id}",
+      path: {
+        qualification_id: data.qualificationId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.qualificationId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteQualificationsQualificationIdDelete(
+    data: $OpenApiTs["/qualifications/{qualification_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/qualifications/{qualification_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/qualifications/{qualification_id}",
+      path: {
+        qualification_id: data.qualificationId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QualificationDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createQualificationsPost(
+    data: $OpenApiTs["/qualifications"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/qualifications"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/qualifications",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QualificationDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateQualificationsPatch(
+    data: $OpenApiTs["/qualifications"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/qualifications"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/qualifications",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
