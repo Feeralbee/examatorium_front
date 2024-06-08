@@ -586,7 +586,7 @@ export class GroupsService {
   /**
    * Delete
    * @param data The data for the request.
-   * @param data.groudId
+   * @param data.groupId
    * @returns unknown Successful Response
    * @throws ApiError
    */
@@ -596,8 +596,8 @@ export class GroupsService {
     return __request(OpenAPI, {
       method: "DELETE",
       url: "/groups/{group_id}",
-      query: {
-        groud_id: data.groudId,
+      path: {
+        group_id: data.groupId,
       },
       errors: {
         422: "Validation Error",

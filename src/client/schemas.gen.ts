@@ -621,7 +621,7 @@ export const $UpdateGroupRequest = {
       ],
       title: "Name",
     },
-    type: {
+    qualification_id: {
       anyOf: [
         {
           type: "string",
@@ -630,18 +630,7 @@ export const $UpdateGroupRequest = {
           type: "null",
         },
       ],
-      title: "Type",
-    },
-    index: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
-      title: "Index",
+      title: "Qualification Id",
     },
   },
   type: "object",

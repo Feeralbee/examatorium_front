@@ -164,8 +164,7 @@ export type UpdateExamRequest = {
 export type UpdateGroupRequest = {
   id: string;
   name?: string | null;
-  type?: string | null;
-  index?: string | null;
+  qualification_id?: string | null;
 };
 
 export type UpdateQualificationExamRequest = {
@@ -651,7 +650,7 @@ export type $OpenApiTs = {
     };
     delete: {
       req: {
-        groudId: string;
+        groupId: string;
       };
       res: {
         /**
