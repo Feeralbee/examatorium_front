@@ -10,6 +10,7 @@ const queryKeys: { [key: string]: QueryKey } = {
   allGroups: ["all_groups"],
   allDisciplines: ["all_disciplines"],
   allThemes: ["all_themes"],
+  studentGroup: ["student_group"],
 };
 
 export default queryKeys;

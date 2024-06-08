@@ -14,7 +14,7 @@ function Index() {
       данных.
       <br />
       <br />
-      Если вы забыли пароль? напишите администратору на почту mail@mail.ru
+      Забыли пароль? Напишите администратору на почту mail@mail.ru
       <Link to="/login">
         <Button className="index-page-button">Продолжить</Button>
       </Link>

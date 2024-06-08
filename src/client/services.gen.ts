@@ -478,6 +478,42 @@ export class GroupsService {
   }
 
   /**
+   * All Groups Students
+   * @returns GroupStudentDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allGroupsStudentsGroupsStudentsGet(): CancelablePromise<
+    $OpenApiTs["/groups/students"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/groups/students",
+    });
+  }
+
+  /**
+   * Student Group
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static studentGroupGroupsStudentGroupGet(
+    data: $OpenApiTs["/groups/student_group"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/groups/student_group"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/groups/student_group",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
    * Add Student
    * @param data The data for the request.
    * @param data.groupId

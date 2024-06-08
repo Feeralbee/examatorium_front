@@ -12,4 +12,16 @@ const formDataError: iNotification = {
   },
 };
 
-export { formDataError };
+const loginInUse: iNotification = {
+  title: "Логин уже занят",
+  type: "danger",
+  insert: "top",
+  container: "bottom-right",
+  animationIn: ["animate__animated", "animate__fadeIn"],
+  animationOut: ["animate__animated", "animate__fadeOut"],
+  dismiss: {
+    duration: 3000,
+  },
+};
+
+export { formDataError, loginInUse };

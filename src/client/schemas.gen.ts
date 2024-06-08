@@ -3,14 +3,7 @@
 export const $CompetenceDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -229,14 +222,7 @@ export const $CreateUserRequest = {
 export const $DisciplineDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -256,14 +242,7 @@ export const $DisciplineDomainEntity = {
 export const $ExamDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     discipline_id: {
@@ -309,14 +288,7 @@ export const $ExamDomainEntity = {
 export const $GroupDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -343,6 +315,26 @@ export const $GroupDomainEntity = {
   title: "GroupDomainEntity",
 } as const;
 
+export const $GroupStudentDomainEntity = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    student_id: {
+      type: "string",
+      title: "Student Id",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+  },
+  type: "object",
+  required: ["id", "student_id", "group_id"],
+  title: "GroupStudentDomainEntity",
+} as const;
+
 export const $HTTPValidationError = {
   properties: {
     detail: {
@@ -360,14 +352,7 @@ export const $HTTPValidationError = {
 export const $QualificationCommissionMemberDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -391,14 +376,7 @@ export const $QualificationCommissionMemberDomainEntity = {
 export const $QualificationDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     index: {
@@ -425,14 +403,7 @@ export const $QualificationDomainEntity = {
 export const $QualificationExamDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     discipline_id: {
@@ -486,14 +457,7 @@ export const $QualificationExamDomainEntity = {
 export const $QuestionDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -521,14 +485,7 @@ export const $QuestionDomainEntity = {
 export const $ThemeDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     name: {
@@ -881,14 +838,7 @@ export const $UpdateUserRequest = {
 export const $UserDomainEntity = {
   properties: {
     id: {
-      anyOf: [
-        {
-          type: "string",
-        },
-        {
-          type: "null",
-        },
-      ],
+      type: "string",
       title: "Id",
     },
     login: {

@@ -17,7 +17,7 @@ const CreateCompetencePage = () => {
       CompetenciesService.createCompetenciesPost({ requestBody: data }),
     onSuccess: () => navigate({ to: "/admin/competencies" }),
   });
-  const onError: SubmitErrorHandler<CreateCompetenceRequest> = (data) =>
+  const onError: SubmitErrorHandler<CreateCompetenceRequest> = () =>
     Store.addNotification(formDataError);
   const onSubmit = form.handleSubmit((data) => {
     mutation.mutate(data);
@@ -40,13 +40,19 @@ const CreateCompetencePage = () => {
           <Grid item xs={2}>
             <TextField
               label="Индекс*"
-              {...form.register("index", { required: true })}
+              {...form.register("index", {
+                required: true,
+                pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
+              })}
             />
           </Grid>
           <Grid item>
             <TextField
               label="Название*"
-              {...form.register("name", { required: true })}
+              {...form.register("name", {
+                required: true,
+                pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
+              })}
             />
           </Grid>
           <Grid item>
@@ -71,7 +77,7 @@ const CreateCompetencePage = () => {
           <Button style={{ width: 150 }}>Создать</Button>
         </Grid>
       </form>
-      <Link to={"/admin/users"}>
+      <Link to={"/admin/competencies"}>
         <Button style={{ width: 100, marginTop: 30 }}>Назад</Button>
       </Link>
     </>

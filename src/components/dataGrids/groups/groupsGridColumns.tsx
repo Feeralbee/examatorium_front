@@ -9,7 +9,7 @@ const groupsGridColumns: GridColDef[] = [
     field: "qualification",
     headerName: "Квалификация",
     valueGetter: (value, row) =>
-      `${row.qualification.index} ${row.qualification.name}`,
+      `${row.qualification?.index} ${row.qualification?.name}`,
   },
 ];
 
