@@ -32,13 +32,6 @@ export type CreateGroupRequest = {
   qualification_id: string;
 };
 
-export type CreateQualificationExamRequest = {
-  discipline_id: string;
-  teacher_id: string;
-  group_id: string;
-  semester: number;
-};
-
 export type CreateQualificationRequest = {
   index: string;
   name: string;
@@ -52,7 +45,7 @@ export type CreateQuestionRequest = {
 
 export type CreateThemeRequest = {
   name: string;
-  discipline_id: string;
+  exam_id: string;
 };
 
 export type CreateUserRequest = {
@@ -99,30 +92,11 @@ export type HTTPValidationError = {
   detail?: Array<ValidationError>;
 };
 
-export type QualificationCommissionMemberDomainEntity = {
-  id: string;
-  name: string;
-  surname: string;
-  patronymic: string;
-};
-
 export type QualificationDomainEntity = {
   id: string;
   index: string;
   name: string;
   competencies: Array<CompetenceDomainEntity>;
-};
-
-export type QualificationExamDomainEntity = {
-  id: string;
-  discipline_id: string;
-  discipline: DisciplineDomainEntity;
-  teacher_id: string;
-  teacher: UserDomainEntity;
-  group_id: string;
-  group: GroupDomainEntity;
-  semester: number;
-  members: Array<QualificationCommissionMemberDomainEntity>;
 };
 
 export type QuestionDomainEntity = {
@@ -136,8 +110,8 @@ export type QuestionDomainEntity = {
 export type ThemeDomainEntity = {
   id: string;
   name: string;
-  discipline_id: string;
-  discipline: DisciplineDomainEntity;
+  exam_id: string;
+  exam: ExamDomainEntity;
 };
 
 export type UpdateCompetenceRequest = {
@@ -167,14 +141,6 @@ export type UpdateGroupRequest = {
   qualification_id?: string | null;
 };
 
-export type UpdateQualificationExamRequest = {
-  id: string;
-  discipline_id: string;
-  teacher_id: string;
-  group_id: string;
-  semester: number;
-};
-
 export type UpdateQualificationRequest = {
   id: string;
   index: string;
@@ -191,7 +157,7 @@ export type UpdateQuestionRequest = {
 export type UpdateThemeRequest = {
   id: string;
   name: string;
-  discipline_id: string;
+  exam_id: string;
 };
 
 export type UpdateUserPasswordRequest = {
@@ -479,80 +445,6 @@ export type $OpenApiTs = {
          * Successful Response
          */
         200: ExamDomainEntity;
-        /**
-         * Validation Error
-         */
-        422: HTTPValidationError;
-      };
-    };
-  };
-  "/qual_exams/all": {
-    get: {
-      res: {
-        /**
-         * Successful Response
-         */
-        200: Array<QualificationExamDomainEntity>;
-      };
-    };
-  };
-  "/qual_exams/{exam_id}": {
-    get: {
-      req: {
-        examId: string;
-      };
-      res: {
-        /**
-         * Successful Response
-         */
-        200: QualificationExamDomainEntity;
-        /**
-         * Validation Error
-         */
-        422: HTTPValidationError;
-      };
-    };
-    delete: {
-      req: {
-        examId: string;
-      };
-      res: {
-        /**
-         * Successful Response
-         */
-        200: unknown;
-        /**
-         * Validation Error
-         */
-        422: HTTPValidationError;
-      };
-    };
-  };
-  "/qual_exams": {
-    post: {
-      req: {
-        requestBody: CreateQualificationExamRequest;
-      };
-      res: {
-        /**
-         * Successful Response
-         */
-        200: QualificationExamDomainEntity;
-        /**
-         * Validation Error
-         */
-        422: HTTPValidationError;
-      };
-    };
-    patch: {
-      req: {
-        requestBody: UpdateQualificationExamRequest;
-      };
-      res: {
-        /**
-         * Successful Response
-         */
-        200: QualificationExamDomainEntity;
         /**
          * Validation Error
          */

@@ -1,3 +1,4 @@
+import { ThemeDomainEntity } from "@client";
 import { GridColDef } from "@mui/x-data-grid";
 
 const themesGridColumns: GridColDef[] = [
@@ -6,10 +7,10 @@ const themesGridColumns: GridColDef[] = [
     headerName: "Имя",
   },
   {
-    field: "discipline",
-    headerName: "Дисциплина",
-    valueGetter: (value, row) =>
-      `${row.discipline.index} ${row.discipline.name}`,
+    field: "exam",
+    headerName: "Экзамен",
+    valueGetter: (value, row: ThemeDomainEntity) =>
+      `${row.exam.discipline.index} ${row.exam.discipline.name}, ${row.exam.group.name}, ${row.exam.teacher.surname}, ${row.exam.semester} семместр`,
   },
 ];
 

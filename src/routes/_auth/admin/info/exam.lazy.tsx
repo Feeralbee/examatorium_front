@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Link, createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import ButtonElement from "@components/Button";
 import { Button } from "@mui/material";
+import { EditExam } from "@components/info/exam";
 
 const ExamInfoPage = () => {
   const search: ExamDomainEntity = Route.useSearch();
@@ -24,6 +25,7 @@ const ExamInfoPage = () => {
         {`${search.teacher.surname} ${search.teacher.name} ${search.teacher.patronymic ?? ""}`}
       </p>
       <p>Семместр: {search.semester}</p>
+      <EditExam search={search} />
       <Link to={"/admin/exams"}>
         <ButtonElement style={{ width: 100, marginTop: 30, marginRight: 10 }}>
           Назад

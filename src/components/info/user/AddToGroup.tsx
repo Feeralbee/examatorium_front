@@ -98,7 +98,7 @@ export default function AddToGroup({ search }: { search: UpdateUserRequest }) {
           type="button"
           onClick={() => deleteGroupmutation.mutate({ studentId: search.id })}
         >
-          Удалить группу
+          Удалить из группы
         </Button>
       </Grid>
     </form>

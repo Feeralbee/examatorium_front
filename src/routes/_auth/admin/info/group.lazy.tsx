@@ -3,8 +3,7 @@ import { Link, createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import ButtonElement from "@components/Button";
 import { Button } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
-import { EditGroup } from "@components/info/group";
-import EditGroupQualification from "@components/info/group/EditGroupQualification";
+import { EditGroup, EditGroupQualification } from "@components/info/group";
 
 const GroupInfoPage = () => {
   const search: UpdateGroupRequest = Route.useSearch();

@@ -104,30 +104,6 @@ export const $CreateGroupRequest = {
   title: "CreateGroupRequest",
 } as const;
 
-export const $CreateQualificationExamRequest = {
-  properties: {
-    discipline_id: {
-      type: "string",
-      title: "Discipline Id",
-    },
-    teacher_id: {
-      type: "string",
-      title: "Teacher Id",
-    },
-    group_id: {
-      type: "string",
-      title: "Group Id",
-    },
-    semester: {
-      type: "integer",
-      title: "Semester",
-    },
-  },
-  type: "object",
-  required: ["discipline_id", "teacher_id", "group_id", "semester"],
-  title: "CreateQualificationExamRequest",
-} as const;
-
 export const $CreateQualificationRequest = {
   properties: {
     index: {
@@ -171,13 +147,13 @@ export const $CreateThemeRequest = {
       type: "string",
       title: "Name",
     },
-    discipline_id: {
+    exam_id: {
       type: "string",
-      title: "Discipline Id",
+      title: "Exam Id",
     },
   },
   type: "object",
-  required: ["name", "discipline_id"],
+  required: ["name", "exam_id"],
   title: "CreateThemeRequest",
 } as const;
 
@@ -349,30 +325,6 @@ export const $HTTPValidationError = {
   title: "HTTPValidationError",
 } as const;
 
-export const $QualificationCommissionMemberDomainEntity = {
-  properties: {
-    id: {
-      type: "string",
-      title: "Id",
-    },
-    name: {
-      type: "string",
-      title: "Name",
-    },
-    surname: {
-      type: "string",
-      title: "Surname",
-    },
-    patronymic: {
-      type: "string",
-      title: "Patronymic",
-    },
-  },
-  type: "object",
-  required: ["id", "name", "surname", "patronymic"],
-  title: "QualificationCommissionMemberDomainEntity",
-} as const;
-
 export const $QualificationDomainEntity = {
   properties: {
     id: {
@@ -398,60 +350,6 @@ export const $QualificationDomainEntity = {
   type: "object",
   required: ["id", "index", "name", "competencies"],
   title: "QualificationDomainEntity",
-} as const;
-
-export const $QualificationExamDomainEntity = {
-  properties: {
-    id: {
-      type: "string",
-      title: "Id",
-    },
-    discipline_id: {
-      type: "string",
-      title: "Discipline Id",
-    },
-    discipline: {
-      $ref: "#/components/schemas/DisciplineDomainEntity",
-    },
-    teacher_id: {
-      type: "string",
-      title: "Teacher Id",
-    },
-    teacher: {
-      $ref: "#/components/schemas/UserDomainEntity",
-    },
-    group_id: {
-      type: "string",
-      title: "Group Id",
-    },
-    group: {
-      $ref: "#/components/schemas/GroupDomainEntity",
-    },
-    semester: {
-      type: "integer",
-      title: "Semester",
-    },
-    members: {
-      items: {
-        $ref: "#/components/schemas/QualificationCommissionMemberDomainEntity",
-      },
-      type: "array",
-      title: "Members",
-    },
-  },
-  type: "object",
-  required: [
-    "id",
-    "discipline_id",
-    "discipline",
-    "teacher_id",
-    "teacher",
-    "group_id",
-    "group",
-    "semester",
-    "members",
-  ],
-  title: "QualificationExamDomainEntity",
 } as const;
 
 export const $QuestionDomainEntity = {
@@ -492,16 +390,16 @@ export const $ThemeDomainEntity = {
       type: "string",
       title: "Name",
     },
-    discipline_id: {
+    exam_id: {
       type: "string",
-      title: "Discipline Id",
+      title: "Exam Id",
     },
-    discipline: {
-      $ref: "#/components/schemas/DisciplineDomainEntity",
+    exam: {
+      $ref: "#/components/schemas/ExamDomainEntity",
     },
   },
   type: "object",
-  required: ["id", "name", "discipline_id", "discipline"],
+  required: ["id", "name", "exam_id", "exam"],
   title: "ThemeDomainEntity",
 } as const;
 
@@ -638,34 +536,6 @@ export const $UpdateGroupRequest = {
   title: "UpdateGroupRequest",
 } as const;
 
-export const $UpdateQualificationExamRequest = {
-  properties: {
-    id: {
-      type: "string",
-      title: "Id",
-    },
-    discipline_id: {
-      type: "string",
-      title: "Discipline Id",
-    },
-    teacher_id: {
-      type: "string",
-      title: "Teacher Id",
-    },
-    group_id: {
-      type: "string",
-      title: "Group Id",
-    },
-    semester: {
-      type: "integer",
-      title: "Semester",
-    },
-  },
-  type: "object",
-  required: ["id", "discipline_id", "teacher_id", "group_id", "semester"],
-  title: "UpdateQualificationExamRequest",
-} as const;
-
 export const $UpdateQualificationRequest = {
   properties: {
     id: {
@@ -721,13 +591,13 @@ export const $UpdateThemeRequest = {
       type: "string",
       title: "Name",
     },
-    discipline_id: {
+    exam_id: {
       type: "string",
-      title: "Discipline Id",
+      title: "Exam Id",
     },
   },
   type: "object",
-  required: ["id", "name", "discipline_id"],
+  required: ["id", "name", "exam_id"],
   title: "UpdateThemeRequest",
 } as const;
 

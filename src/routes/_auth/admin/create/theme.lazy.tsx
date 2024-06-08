@@ -1,4 +1,4 @@
-import { ThemesService, CreateThemeRequest, DisciplinesService } from "@client";
+import { ThemesService, CreateThemeRequest, ExamsService } from "@client";
 import Button from "@components/Button";
 import { formDataError } from "@misc/notifies/forms_errors/formDataError";
 import queryKeys from "@misc/queryKeys";
@@ -21,9 +21,9 @@ const CreateThemePage = () => {
   const onSubmit = form.handleSubmit((data) => {
     mutation.mutate(data);
   }, onError);
-  const disciplinesQuery = useQuery({
-    queryKey: queryKeys.allDisciplines,
-    queryFn: () => DisciplinesService.allDisciplinesAllGet(),
+  const examsQuery = useQuery({
+    queryKey: queryKeys.allExams,
+    queryFn: () => ExamsService.allExamsAllGet(),
     initialData: [],
   });
 
@@ -53,23 +53,22 @@ const CreateThemePage = () => {
           <Grid item>
             <Controller
               control={form.control}
-              name="discipline_id"
+              name="exam_id"
               rules={{ required: true }}
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <TextField
-                  label="Дисциплина*"
+                  label="Экзамен*"
                   select
                   onChange={onChange}
                   onBlur={onBlur}
                   value={value}
                   ref={ref}
-                  sx={{ minWidth: 150 }}
+                  sx={{ width: 150 }}
                 >
-                  {disciplinesQuery.data.map((value) => (
-                    <MenuItem
-                      key={value.id}
-                      value={`${value.id}`}
-                    >{`${value.index} ${value.name}`}</MenuItem>
+                  {examsQuery.data.map((value) => (
+                    <MenuItem key={value.id} value={`${value.id}`}>
+                      {`${value.discipline.name}, ${value.teacher.surname}, ${value.group.name}, ${value.semester} семестр`}
+                    </MenuItem>
                   ))}
                 </TextField>
               )}

@@ -21,11 +21,11 @@ const adminMenuItems: MenuItem[] = [
     link: "/admin/exams",
     icon: "../src/assets/menu_icons/exams.svg",
   },
-  {
-    name: "Квал. Экзамены",
-    link: "/admin/qual_exams",
-    icon: "../src/assets/menu_icons/admin/qualification_exams.svg",
-  },
+  // {
+  //   name: "Квал. Экзамены",
+  //   link: "/admin/qual_exams",
+  //   icon: "../src/assets/menu_icons/admin/qualification_exams.svg",
+  // },
   {
     name: "Группы",
     link: "/admin/groups",
