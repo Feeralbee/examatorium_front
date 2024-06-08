@@ -1,7 +1,7 @@
 import { UpdateUserRequest, UsersService } from "@client";
 import ButtonElement from "@components/Button";
-import { EditUser, ChangePassword } from "@components/info/users";
-import AddToGroup from "@components/info/users/AddToGroup";
+import { EditUser, ChangePassword } from "@components/info/user";
+import AddToGroup from "@components/info/user/AddToGroup";
 import { Button } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { Link, createLazyFileRoute, useNavigate } from "@tanstack/react-router";
