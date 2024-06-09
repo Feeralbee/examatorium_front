@@ -232,6 +232,49 @@ export class ThemesService {
   }
 
   /**
+   * Add Question
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns QuestionDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static addQuestionThemesQuestionsPost(
+    data: $OpenApiTs["/themes/questions"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/themes/questions"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/themes/questions",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete Question
+   * @param data The data for the request.
+   * @param data.id
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteQuestionThemesQuestionsDelete(
+    data: $OpenApiTs["/themes/questions"]["delete"]["req"],
+  ): CancelablePromise<$OpenApiTs["/themes/questions"]["delete"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/themes/questions",
+      query: {
+        id: data.id,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
    * Delete
    * @param data The data for the request.
    * @param data.themeId
@@ -268,6 +311,124 @@ export class ExamsService {
     return __request(OpenAPI, {
       method: "GET",
       url: "/exams/all",
+    });
+  }
+
+  /**
+   * Teacher Exams
+   * @param data The data for the request.
+   * @param data.teacherId
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static teacherExamsExamsTeacherGet(
+    data: $OpenApiTs["/exams/teacher"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/teacher"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/teacher",
+      query: {
+        teacher_id: data.teacherId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Student Exams
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns ExamDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static studentExamsExamsStudentGet(
+    data: $OpenApiTs["/exams/student"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/student"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/student",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Exam Questions
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns ThemeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static examQuestionsExamsQuestionsGet(
+    data: $OpenApiTs["/exams/questions"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/questions"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/questions",
+      query: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Get
+   * @param data The data for the request.
+   * @param data.examId
+   * @returns QuestionsCount Successful Response
+   * @throws ApiError
+   */
+  public static getExamsQuestionsCountGet(
+    data: $OpenApiTs["/exams/questions_count"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/exams/questions_count"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/questions_count",
+      query: {
+        exam_id: data.examId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Tickets
+   * @param data The data for the request.
+   * @param data.examId
+   * @param data.isA4PaperFormat
+   * @param data.questionsCount
+   * @param data.taskQuestionsCount
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static ticketsExamsTicketsGet(
+    data: $OpenApiTs["/exams/tickets"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/exams/tickets"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/exams/tickets",
+      query: {
+        exam_id: data.examId,
+        is_a4_paper_format: data.isA4PaperFormat,
+        questions_count: data.questionsCount,
+        task_questions_count: data.taskQuestionsCount,
+      },
+      errors: {
+        422: "Validation Error",
+      },
     });
   }
 

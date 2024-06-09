@@ -1,14 +1,17 @@
 import { DataGrid } from "@mui/x-data-grid";
 import examsGridColumns from "./examsGridColumns";
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import queryKeys from "@misc/queryKeys";
+import { useQuery } from "@tanstack/react-query";
 import { ExamsService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
+import UserDataStore from "@misc/stores/UserDataStore";
 
-export default function ExamsDataGrid() {
-  const query = useQuery({
-    queryKey: queryKeys.allExams,
-    queryFn: () => ExamsService.allExamsAllGet(),
+export default function TeacherExamsDataGrid() {
+  const studentExamsQuery = useQuery({
+    queryKey: ["teacher_exams"],
+    queryFn: () =>
+      ExamsService.teacherExamsExamsTeacherGet({
+        teacherId: `${UserDataStore.state?.id}`,
+      }),
     initialData: [],
   });
   const navigate = useNavigate();
@@ -16,8 +19,8 @@ export default function ExamsDataGrid() {
     <DataGrid
       sx={{ "--DataGrid-overlayHeight": "300px" }}
       columns={examsGridColumns}
-      rows={query.data}
-      loading={query.isFetching}
+      rows={studentExamsQuery.data}
+      loading={studentExamsQuery.isFetching || studentExamsQuery.isLoading}
       initialState={{
         pagination: {
           paginationModel: {
@@ -37,7 +40,7 @@ export default function ExamsDataGrid() {
       autoHeight
       onRowClick={(params) => {
         navigate({
-          to: "/admin/info/exam",
+          to: "/teacher/info",
           search: params.row,
         });
       }}

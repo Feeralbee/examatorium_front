@@ -1,5 +1,14 @@
+import StudentExamsDataGrid from "@components/dataGrids/student_exams";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
+const ExamsPage = () => {
+  return (
+    <>
+      <StudentExamsDataGrid />
+    </>
+  );
+};
+
 export const Route = createLazyFileRoute("/_auth/student/exams")({
-  component: () => <div>Hello /_auth/student/exams!</div>,
+  component: ExamsPage,
 });

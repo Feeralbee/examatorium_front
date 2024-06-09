@@ -1,24 +1,50 @@
-import { QualificationsService, CreateQualificationRequest } from "@client";
+import {
+  QualificationsService,
+  CreateQualificationRequest,
+  CompetenciesService,
+} from "@client";
 import Button from "@components/Button";
 import { formDataError } from "@misc/notifies/forms_errors/formDataError";
-import { Grid, TextField } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
+import queryKeys from "@misc/queryKeys";
+import { Grid, MenuItem, TextField } from "@mui/material";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link, createLazyFileRoute, useNavigate } from "@tanstack/react-router";
-import { SubmitErrorHandler, useForm } from "react-hook-form";
+import { Controller, SubmitErrorHandler, useForm } from "react-hook-form";
 import { Store } from "react-notifications-component";
 
 const CreateQualificationPage = () => {
-  const form = useForm<CreateQualificationRequest>();
+  const form = useForm<{
+    qualification: CreateQualificationRequest;
+    competencies: string[];
+  }>({
+    defaultValues: { competencies: [] },
+  });
   const navigate = useNavigate();
   const mutation = useMutation({
-    mutationFn: (data: CreateQualificationRequest) =>
-      QualificationsService.createQualificationsPost({ requestBody: data }),
+    mutationFn: (result: {
+      qualificationData: CreateQualificationRequest;
+      competencies: string[];
+    }) =>
+      QualificationsService.createQualificationsPost({
+        requestBody: {
+          data: result.qualificationData,
+          competencies: result.competencies,
+        },
+      }),
     onSuccess: () => navigate({ to: "/admin/qualifications" }),
+  });
+  const competenciesQuery = useQuery({
+    queryKey: queryKeys.allCompetencies,
+    queryFn: () => CompetenciesService.allCompetenciesAllGet(),
+    initialData: [],
   });
   const onError: SubmitErrorHandler<CreateQualificationRequest> = () =>
     Store.addNotification(formDataError);
   const onSubmit = form.handleSubmit((data) => {
-    mutation.mutate(data);
+    mutation.mutate({
+      qualificationData: data.qualification,
+      competencies: data.competencies,
+    });
   }, onError);
 
   return (
@@ -38,7 +64,7 @@ const CreateQualificationPage = () => {
           <Grid item>
             <TextField
               label="Индекс*"
-              {...form.register("index", {
+              {...form.register("qualification.index", {
                 required: true,
                 pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
               })}
@@ -47,10 +73,37 @@ const CreateQualificationPage = () => {
           <Grid item>
             <TextField
               label="Название*"
-              {...form.register("name", {
+              {...form.register("qualification.name", {
                 required: true,
                 pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
               })}
+            />
+          </Grid>
+          <Grid item>
+            <Controller
+              control={form.control}
+              name="competencies"
+              rules={{ required: true }}
+              render={({ field: { onChange, onBlur, value, ref } }) => (
+                <TextField
+                  label="Компетенции*"
+                  select
+                  SelectProps={{
+                    multiple: true,
+                  }}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  ref={ref}
+                  sx={{ minWidth: 100 }}
+                >
+                  {competenciesQuery.data.map((value) => (
+                    <MenuItem key={value.id} value={`${value.id}`}>
+                      {value.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
             />
           </Grid>
           <Button style={{ width: 150 }}>Создать</Button>
