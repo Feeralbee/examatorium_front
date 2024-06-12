@@ -65,6 +65,47 @@ export const $CompetenceTypes = {
   title: "CompetenceTypes",
 } as const;
 
+export const $CourseWorkDomainEntity = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    discipline_id: {
+      type: "string",
+      title: "Discipline Id",
+    },
+    discipline: {
+      $ref: "#/components/schemas/DisciplineDomainEntity",
+    },
+    teacher_id: {
+      type: "string",
+      title: "Teacher Id",
+    },
+    teacher: {
+      $ref: "#/components/schemas/UserDomainEntity",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+    group: {
+      $ref: "#/components/schemas/GroupDomainEntity",
+    },
+  },
+  type: "object",
+  required: [
+    "id",
+    "discipline_id",
+    "discipline",
+    "teacher_id",
+    "teacher",
+    "group_id",
+    "group",
+  ],
+  title: "CourseWorkDomainEntity",
+} as const;
+
 export const $CreateCompetenceRequest = {
   properties: {
     name: {
@@ -84,6 +125,26 @@ export const $CreateCompetenceRequest = {
   title: "CreateCompetenceRequest",
 } as const;
 
+export const $CreateCourseWorkRequest = {
+  properties: {
+    discipline_id: {
+      type: "string",
+      title: "Discipline Id",
+    },
+    teacher_id: {
+      type: "string",
+      title: "Teacher Id",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+  },
+  type: "object",
+  required: ["discipline_id", "teacher_id", "group_id"],
+  title: "CreateCourseWorkRequest",
+} as const;
+
 export const $CreateDisciplineRequest = {
   properties: {
     name: {
@@ -98,6 +159,30 @@ export const $CreateDisciplineRequest = {
   type: "object",
   required: ["name", "index"],
   title: "CreateDisciplineRequest",
+} as const;
+
+export const $CreateEducationalPracticeRequest = {
+  properties: {
+    teacher_id: {
+      type: "string",
+      title: "Teacher Id",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+    name: {
+      type: "string",
+      title: "Name",
+    },
+    hours_count: {
+      type: "integer",
+      title: "Hours Count",
+    },
+  },
+  type: "object",
+  required: ["teacher_id", "group_id", "name", "hours_count"],
+  title: "CreateEducationalPracticeRequest",
 } as const;
 
 export const $CreateExamRequest = {
@@ -124,6 +209,18 @@ export const $CreateExamRequest = {
   title: "CreateExamRequest",
 } as const;
 
+export const $CreateGraduateThesisRequest = {
+  properties: {
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+  },
+  type: "object",
+  required: ["group_id"],
+  title: "CreateGraduateThesisRequest",
+} as const;
+
 export const $CreateGroupRequest = {
   properties: {
     name: {
@@ -134,9 +231,13 @@ export const $CreateGroupRequest = {
       type: "string",
       title: "Qualification Id",
     },
+    speciality: {
+      type: "string",
+      title: "Speciality",
+    },
   },
   type: "object",
-  required: ["name", "qualification_id"],
+  required: ["name", "qualification_id", "speciality"],
   title: "CreateGroupRequest",
 } as const;
 
@@ -251,6 +352,48 @@ export const $DisciplineDomainEntity = {
   title: "DisciplineDomainEntity",
 } as const;
 
+export const $EducationalPracticeDomainEntity = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    teacher_id: {
+      type: "string",
+      title: "Teacher Id",
+    },
+    teacher: {
+      $ref: "#/components/schemas/UserDomainEntity",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+    group: {
+      $ref: "#/components/schemas/GroupDomainEntity",
+    },
+    name: {
+      type: "string",
+      title: "Name",
+    },
+    hours_count: {
+      type: "integer",
+      title: "Hours Count",
+    },
+  },
+  type: "object",
+  required: [
+    "id",
+    "teacher_id",
+    "teacher",
+    "group_id",
+    "group",
+    "name",
+    "hours_count",
+  ],
+  title: "EducationalPracticeDomainEntity",
+} as const;
+
 export const $ExamDomainEntity = {
   properties: {
     id: {
@@ -297,6 +440,25 @@ export const $ExamDomainEntity = {
   title: "ExamDomainEntity",
 } as const;
 
+export const $GraduateThesisDomainEntity = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    group_id: {
+      type: "string",
+      title: "Group Id",
+    },
+    group: {
+      $ref: "#/components/schemas/GroupDomainEntity",
+    },
+  },
+  type: "object",
+  required: ["id", "group_id", "group"],
+  title: "GraduateThesisDomainEntity",
+} as const;
+
 export const $GroupDomainEntity = {
   properties: {
     id: {
@@ -321,9 +483,20 @@ export const $GroupDomainEntity = {
     qualification: {
       $ref: "#/components/schemas/QualificationDomainEntity",
     },
+    speciality: {
+      type: "string",
+      title: "Speciality",
+    },
   },
   type: "object",
-  required: ["id", "name", "qualification_id", "students", "qualification"],
+  required: [
+    "id",
+    "name",
+    "qualification_id",
+    "students",
+    "qualification",
+    "speciality",
+  ],
   title: "GroupDomainEntity",
 } as const;
 
@@ -482,6 +655,51 @@ export const $UpdateCompetenceRequest = {
   title: "UpdateCompetenceRequest",
 } as const;
 
+export const $UpdateCourseWorkRequest = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    discipline_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Discipline Id",
+    },
+    teacher_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Teacher Id",
+    },
+    group_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Group Id",
+    },
+  },
+  type: "object",
+  required: ["id"],
+  title: "UpdateCourseWorkRequest",
+} as const;
+
 export const $UpdateDisciplineRequest = {
   properties: {
     id: {
@@ -500,6 +718,62 @@ export const $UpdateDisciplineRequest = {
   type: "object",
   required: ["id", "name", "index"],
   title: "UpdateDisciplineRequest",
+} as const;
+
+export const $UpdateEducationalPracticeRequest = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    teacher_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Teacher Id",
+    },
+    group_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Group Id",
+    },
+    name: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Name",
+    },
+    hours_count: {
+      anyOf: [
+        {
+          type: "integer",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Hours Count",
+    },
+  },
+  type: "object",
+  required: ["id"],
+  title: "UpdateEducationalPracticeRequest",
 } as const;
 
 export const $UpdateExamRequest = {
@@ -558,6 +832,29 @@ export const $UpdateExamRequest = {
   title: "UpdateExamRequest",
 } as const;
 
+export const $UpdateGraduateThesisRequest = {
+  properties: {
+    id: {
+      type: "string",
+      title: "Id",
+    },
+    group_id: {
+      anyOf: [
+        {
+          type: "string",
+        },
+        {
+          type: "null",
+        },
+      ],
+      title: "Group Id",
+    },
+  },
+  type: "object",
+  required: ["id"],
+  title: "UpdateGraduateThesisRequest",
+} as const;
+
 export const $UpdateGroupRequest = {
   properties: {
     id: {
@@ -586,9 +883,13 @@ export const $UpdateGroupRequest = {
       ],
       title: "Qualification Id",
     },
+    speciality: {
+      type: "string",
+      title: "Speciality",
+    },
   },
   type: "object",
-  required: ["id"],
+  required: ["id", "speciality"],
   title: "UpdateGroupRequest",
 } as const;
 

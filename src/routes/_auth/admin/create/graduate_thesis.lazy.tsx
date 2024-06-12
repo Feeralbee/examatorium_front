@@ -1,7 +1,7 @@
 import {
-  QualificationsService,
+  CreateGraduateThesisRequest,
+  GraduateThesesService,
   GroupsService,
-  CreateGroupRequest,
 } from "@client";
 import Button from "@components/Button";
 import { formDataError } from "@misc/notifies/forms_errors/formDataError";
@@ -12,30 +12,30 @@ import { Link, createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import { Controller, SubmitErrorHandler, useForm } from "react-hook-form";
 import { Store } from "react-notifications-component";
 
-const CreateGroupPage = () => {
-  const form = useForm<CreateGroupRequest>();
+const CreateGraduateThesisPage = () => {
+  const form = useForm<CreateGraduateThesisRequest>();
   const navigate = useNavigate();
   const mutation = useMutation({
-    mutationFn: (data: CreateGroupRequest) =>
-      GroupsService.createGroupsPost({ requestBody: data }),
-    onSuccess: () => navigate({ to: "/admin/groups" }),
+    mutationFn: (data: CreateGraduateThesisRequest) =>
+      GraduateThesesService.createGraduateThesesPost({ requestBody: data }),
+    onSuccess: () => navigate({ to: "/admin/graduate_theses" }),
   });
-  const onError: SubmitErrorHandler<CreateGroupRequest> = () =>
+  const onError: SubmitErrorHandler<CreateGraduateThesisRequest> = () =>
     Store.addNotification(formDataError);
   const onSubmit = form.handleSubmit((data) => {
     mutation.mutate(data);
   }, onError);
 
-  const qualificationsQuery = useQuery({
-    queryKey: queryKeys.allQualifications,
-    queryFn: () => QualificationsService.allQualificationsAllGet(),
+  const groupsQuery = useQuery({
+    queryKey: queryKeys.allGroups,
+    queryFn: () => GroupsService.allGroupsGroupsAllGet(),
     initialData: [],
   });
 
   return (
     <>
       <form onSubmit={onSubmit}>
-        <h1>Создание группы</h1>
+        <h1>Создание ВКР</h1>
         <Grid
           container
           sx={{
@@ -49,11 +49,11 @@ const CreateGroupPage = () => {
           <Grid item>
             <Controller
               control={form.control}
-              name="qualification_id"
+              name="group_id"
               rules={{ required: true }}
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <TextField
-                  label="Квалификация*"
+                  label="Группа*"
                   select
                   onChange={onChange}
                   onBlur={onBlur}
@@ -61,44 +61,27 @@ const CreateGroupPage = () => {
                   ref={ref}
                   sx={{ width: 150 }}
                 >
-                  {qualificationsQuery.data.map((value) => (
-                    <MenuItem
-                      key={value.id}
-                      value={`${value.id}`}
-                    >{`${value.index} ${value.name}`}</MenuItem>
+                  {groupsQuery.data.map((value) => (
+                    <MenuItem key={value.id} value={`${value.id}`}>
+                      {value.name}
+                    </MenuItem>
                   ))}
                 </TextField>
               )}
             />
           </Grid>
-          <Grid item>
-            <TextField
-              label="Название*"
-              {...form.register("name", {
-                required: true,
-                pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
-              })}
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              label="Специальность*"
-              {...form.register("speciality", {
-                required: true,
-                pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
-              })}
-            />
-          </Grid>
           <Button style={{ width: 150 }}>Создать</Button>
         </Grid>
       </form>
-      <Link to={"/admin/groups"}>
+      <Link to={"/admin/graduate_theses"}>
         <Button style={{ width: 100, marginTop: 30 }}>Назад</Button>
       </Link>
     </>
   );
 };
 
-export const Route = createLazyFileRoute("/_auth/admin/create/group")({
-  component: CreateGroupPage,
-});
+export const Route = createLazyFileRoute("/_auth/admin/create/graduate_thesis")(
+  {
+    component: CreateGraduateThesisPage,
+  },
+);

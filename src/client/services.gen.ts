@@ -1128,3 +1128,471 @@ export class QualificationsService {
     });
   }
 }
+
+export class EducationalPracticesService {
+  /**
+   * All
+   * @returns EducationalPracticeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allEducationalPracticesAllGet(): CancelablePromise<
+    $OpenApiTs["/educational_practices/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/educational_practices/all",
+    });
+  }
+
+  /**
+   * Student Educational Practices
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns EducationalPracticeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static studentEducationalPracticesEducationalPracticesStudentGet(
+    data: $OpenApiTs["/educational_practices/student"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices/student"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/educational_practices/student",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Pages
+   * @param data The data for the request.
+   * @param data.studentId
+   * @param data.educationalPracticeId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static pagesEducationalPracticesPagesGet(
+    data: $OpenApiTs["/educational_practices/pages"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices/pages"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/educational_practices/pages",
+      query: {
+        student_id: data.studentId,
+        educational_practice_id: data.educationalPracticeId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Course Work
+   * @param data The data for the request.
+   * @param data.educationalPracticeId
+   * @returns EducationalPracticeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static courseWorkEducationalPracticesEducationalPracticeIdGet(
+    data: $OpenApiTs["/educational_practices/{educational_practice_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices/{educational_practice_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/educational_practices/{educational_practice_id}",
+      path: {
+        educational_practice_id: data.educationalPracticeId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns EducationalPracticeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createEducationalPracticesPost(
+    data: $OpenApiTs["/educational_practices"]["post"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices"]["post"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/educational_practices",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns EducationalPracticeDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateEducationalPracticesPatch(
+    data: $OpenApiTs["/educational_practices"]["patch"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices"]["patch"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/educational_practices",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.educationalPracticeId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteEducationalPracticesEducationalPracticeIdDelete(
+    data: $OpenApiTs["/educational_practices/educational_practice_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/educational_practices/educational_practice_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/educational_practices/educational_practice_id}",
+      query: {
+        educational_practice_id: data.educationalPracticeId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class GraduateThesesService {
+  /**
+   * All
+   * @returns GraduateThesisDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allGraduateThesesAllGet(): CancelablePromise<
+    $OpenApiTs["/graduate_theses/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/graduate_theses/all",
+    });
+  }
+
+  /**
+   * Student Graduate Theses
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns GraduateThesisDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static studentGraduateThesesGraduateThesesStudentGet(
+    data: $OpenApiTs["/graduate_theses/student"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/graduate_theses/student"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/graduate_theses/student",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Pages
+   * @param data The data for the request.
+   * @param data.studentId
+   * @param data.graduateThesisId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static pagesGraduateThesesPagesGet(
+    data: $OpenApiTs["/graduate_theses/pages"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/graduate_theses/pages"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/graduate_theses/pages",
+      query: {
+        student_id: data.studentId,
+        graduate_thesis_id: data.graduateThesisId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Course Work
+   * @param data The data for the request.
+   * @param data.graduateThesisId
+   * @returns GraduateThesisDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static courseWorkGraduateThesesGraduateThesisIdGet(
+    data: $OpenApiTs["/graduate_theses/{graduate_thesis_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/graduate_theses/{graduate_thesis_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/graduate_theses/{graduate_thesis_id}",
+      path: {
+        graduate_thesis_id: data.graduateThesisId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns GraduateThesisDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createGraduateThesesPost(
+    data: $OpenApiTs["/graduate_theses"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/graduate_theses"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/graduate_theses",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns GraduateThesisDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateGraduateThesesPatch(
+    data: $OpenApiTs["/graduate_theses"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/graduate_theses"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/graduate_theses",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.graduateThesisId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteGraduateThesesCourseWorkIdDelete(
+    data: $OpenApiTs["/graduate_theses/{course_work_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/graduate_theses/{course_work_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/graduate_theses/{course_work_id}",
+      query: {
+        graduate_thesis_id: data.graduateThesisId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}
+
+export class CourseWorksService {
+  /**
+   * All
+   * @returns CourseWorkDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static allCourseWorksAllGet(): CancelablePromise<
+    $OpenApiTs["/course_works/all"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/course_works/all",
+    });
+  }
+
+  /**
+   * Student Course Works
+   * @param data The data for the request.
+   * @param data.studentId
+   * @returns CourseWorkDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static studentCourseWorksCourseWorksStudentGet(
+    data: $OpenApiTs["/course_works/student"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/course_works/student"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/course_works/student",
+      query: {
+        student_id: data.studentId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Pages
+   * @param data The data for the request.
+   * @param data.studentId
+   * @param data.courseWorkId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static pagesCourseWorksPagesGet(
+    data: $OpenApiTs["/course_works/pages"]["get"]["req"],
+  ): CancelablePromise<$OpenApiTs["/course_works/pages"]["get"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/course_works/pages",
+      query: {
+        student_id: data.studentId,
+        course_work_id: data.courseWorkId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Course Work
+   * @param data The data for the request.
+   * @param data.courseWorkId
+   * @returns CourseWorkDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static courseWorkCourseWorksCourseWorkIdGet(
+    data: $OpenApiTs["/course_works/{course_work_id}"]["get"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/course_works/{course_work_id}"]["get"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "GET",
+      url: "/course_works/{course_work_id}",
+      path: {
+        course_work_id: data.courseWorkId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Delete
+   * @param data The data for the request.
+   * @param data.courseWorkId
+   * @returns unknown Successful Response
+   * @throws ApiError
+   */
+  public static deleteCourseWorksCourseWorkIdDelete(
+    data: $OpenApiTs["/course_works/{course_work_id}"]["delete"]["req"],
+  ): CancelablePromise<
+    $OpenApiTs["/course_works/{course_work_id}"]["delete"]["res"][200]
+  > {
+    return __request(OpenAPI, {
+      method: "DELETE",
+      url: "/course_works/{course_work_id}",
+      path: {
+        course_work_id: data.courseWorkId,
+      },
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Create
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CourseWorkDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static createCourseWorksPost(
+    data: $OpenApiTs["/course_works"]["post"]["req"],
+  ): CancelablePromise<$OpenApiTs["/course_works"]["post"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "POST",
+      url: "/course_works",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+
+  /**
+   * Update
+   * @param data The data for the request.
+   * @param data.requestBody
+   * @returns CourseWorkDomainEntity Successful Response
+   * @throws ApiError
+   */
+  public static updateCourseWorksPatch(
+    data: $OpenApiTs["/course_works"]["patch"]["req"],
+  ): CancelablePromise<$OpenApiTs["/course_works"]["patch"]["res"][200]> {
+    return __request(OpenAPI, {
+      method: "PATCH",
+      url: "/course_works",
+      body: data.requestBody,
+      mediaType: "application/json",
+      errors: {
+        422: "Validation Error",
+      },
+    });
+  }
+}

@@ -19,15 +19,38 @@ export type CompetenceDomainEntity = {
 
 export type CompetenceTypes = "professional" | "general";
 
+export type CourseWorkDomainEntity = {
+  id: string;
+  discipline_id: string;
+  discipline: DisciplineDomainEntity;
+  teacher_id: string;
+  teacher: UserDomainEntity;
+  group_id: string;
+  group: GroupDomainEntity;
+};
+
 export type CreateCompetenceRequest = {
   name: string;
   type: CompetenceTypes;
   index: string;
 };
 
+export type CreateCourseWorkRequest = {
+  discipline_id: string;
+  teacher_id: string;
+  group_id: string;
+};
+
 export type CreateDisciplineRequest = {
   name: string;
   index: string;
+};
+
+export type CreateEducationalPracticeRequest = {
+  teacher_id: string;
+  group_id: string;
+  name: string;
+  hours_count: number;
 };
 
 export type CreateExamRequest = {
@@ -37,9 +60,14 @@ export type CreateExamRequest = {
   semester: number;
 };
 
+export type CreateGraduateThesisRequest = {
+  group_id: string;
+};
+
 export type CreateGroupRequest = {
   name: string;
   qualification_id: string;
+  speciality: string;
 };
 
 export type CreateQualificationRequest = {
@@ -73,6 +101,16 @@ export type DisciplineDomainEntity = {
   index: string;
 };
 
+export type EducationalPracticeDomainEntity = {
+  id: string;
+  teacher_id: string;
+  teacher: UserDomainEntity;
+  group_id: string;
+  group: GroupDomainEntity;
+  name: string;
+  hours_count: number;
+};
+
 export type ExamDomainEntity = {
   id: string;
   discipline_id: string;
@@ -84,12 +122,19 @@ export type ExamDomainEntity = {
   semester: number;
 };
 
+export type GraduateThesisDomainEntity = {
+  id: string;
+  group_id: string;
+  group: GroupDomainEntity;
+};
+
 export type GroupDomainEntity = {
   id: string;
   name: string;
   qualification_id: string;
   students: Array<UserDomainEntity>;
   qualification: QualificationDomainEntity;
+  speciality: string;
 };
 
 export type GroupStudentDomainEntity = {
@@ -136,10 +181,25 @@ export type UpdateCompetenceRequest = {
   index: string;
 };
 
+export type UpdateCourseWorkRequest = {
+  id: string;
+  discipline_id?: string | null;
+  teacher_id?: string | null;
+  group_id?: string | null;
+};
+
 export type UpdateDisciplineRequest = {
   id: string;
   name: string;
   index: string;
+};
+
+export type UpdateEducationalPracticeRequest = {
+  id: string;
+  teacher_id?: string | null;
+  group_id?: string | null;
+  name?: string | null;
+  hours_count?: number | null;
 };
 
 export type UpdateExamRequest = {
@@ -150,10 +210,16 @@ export type UpdateExamRequest = {
   semester?: number | null;
 };
 
+export type UpdateGraduateThesisRequest = {
+  id: string;
+  group_id?: string | null;
+};
+
 export type UpdateGroupRequest = {
   id: string;
   name?: string | null;
   qualification_id?: string | null;
+  speciality: string;
 };
 
 export type UpdateQualificationRequest = {
@@ -1012,6 +1078,337 @@ export type $OpenApiTs = {
          * Successful Response
          */
         200: QualificationDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/educational_practices/all": {
+    get: {
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<EducationalPracticeDomainEntity>;
+      };
+    };
+  };
+  "/educational_practices/student": {
+    get: {
+      req: {
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<EducationalPracticeDomainEntity>;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/educational_practices/pages": {
+    get: {
+      req: {
+        educationalPracticeId: string;
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/educational_practices/{educational_practice_id}": {
+    get: {
+      req: {
+        educationalPracticeId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: EducationalPracticeDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/educational_practices": {
+    post: {
+      req: {
+        requestBody: CreateEducationalPracticeRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: EducationalPracticeDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+    patch: {
+      req: {
+        requestBody: UpdateEducationalPracticeRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: EducationalPracticeDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/educational_practices/educational_practice_id}": {
+    delete: {
+      req: {
+        educationalPracticeId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/graduate_theses/all": {
+    get: {
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<GraduateThesisDomainEntity>;
+      };
+    };
+  };
+  "/graduate_theses/student": {
+    get: {
+      req: {
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<GraduateThesisDomainEntity>;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/graduate_theses/pages": {
+    get: {
+      req: {
+        graduateThesisId: string;
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/graduate_theses/{graduate_thesis_id}": {
+    get: {
+      req: {
+        graduateThesisId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: GraduateThesisDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/graduate_theses": {
+    post: {
+      req: {
+        requestBody: CreateGraduateThesisRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: GraduateThesisDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+    patch: {
+      req: {
+        requestBody: UpdateGraduateThesisRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: GraduateThesisDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/graduate_theses/{course_work_id}": {
+    delete: {
+      req: {
+        graduateThesisId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/course_works/all": {
+    get: {
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<CourseWorkDomainEntity>;
+      };
+    };
+  };
+  "/course_works/student": {
+    get: {
+      req: {
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: Array<CourseWorkDomainEntity>;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/course_works/pages": {
+    get: {
+      req: {
+        courseWorkId: string;
+        studentId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/course_works/{course_work_id}": {
+    get: {
+      req: {
+        courseWorkId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: CourseWorkDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+    delete: {
+      req: {
+        courseWorkId: string;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: unknown;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+  };
+  "/course_works": {
+    post: {
+      req: {
+        requestBody: CreateCourseWorkRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: CourseWorkDomainEntity;
+        /**
+         * Validation Error
+         */
+        422: HTTPValidationError;
+      };
+    };
+    patch: {
+      req: {
+        requestBody: UpdateCourseWorkRequest;
+      };
+      res: {
+        /**
+         * Successful Response
+         */
+        200: CourseWorkDomainEntity;
         /**
          * Validation Error
          */

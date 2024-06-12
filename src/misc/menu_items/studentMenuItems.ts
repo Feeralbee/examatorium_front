@@ -7,9 +7,19 @@ const studentMenuItems: MenuItem[] = [
     icon: "../src/assets/menu_icons/exams.svg",
   },
   {
-    name: "Титульные листы",
-    link: "/student/title_pages",
-    icon: "",
+    name: "ВКР",
+    link: "/student/graduate_theses",
+    icon: "../src/assets/menu_icons/admin/document.svg",
+  },
+  {
+    name: "Курсовые работы",
+    link: "/student/course_works",
+    icon: "../src/assets/menu_icons/admin/document.svg",
+  },
+  {
+    name: "Учебные практики",
+    link: "/student/educational_practices",
+    icon: "../src/assets/menu_icons/admin/document.svg",
   },
 ];
 

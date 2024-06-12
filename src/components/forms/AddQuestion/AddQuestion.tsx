@@ -1,26 +1,21 @@
-import {
-  CreateQuestionRequest,
-  ThemeDomainEntity,
-  ThemesService,
-} from "@client";
+import { CreateQuestionRequest, ThemesService } from "@client";
 import Button from "@components/Button";
 import { formDataError } from "@misc/notifies/forms_errors/formDataError";
 import { Checkbox, Grid, TextField } from "@mui/material";
-import { UseQueryResult, useMutation } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { Store } from "react-notifications-component";
 
-export default function AddQuestion(props: {
-  theme_id: string;
-  themesQuery: UseQueryResult<ThemeDomainEntity[]>;
-}) {
+export default function AddQuestion(props: { theme_id: string }) {
   const form = useForm<CreateQuestionRequest>({
     defaultValues: { theme_id: props.theme_id, is_task_question: false },
   });
+  const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: (data: CreateQuestionRequest) =>
       ThemesService.addQuestionThemesQuestionsPost({ requestBody: data }),
-    onSuccess: () => props.themesQuery.refetch(),
+    onSuccess: () => navigate({ to: "/teacher/exams" }),
   });
   const onSubmit = form.handleSubmit(
     (data) => mutation.mutate(data),

@@ -11,6 +11,10 @@ const groupsGridColumns: GridColDef[] = [
     valueGetter: (value, row) =>
       `${row.qualification?.index} ${row.qualification?.name}`,
   },
+  {
+    field: "speciality",
+    headerName: "Специальность",
+  },
 ];
 
 export default groupsGridColumns;

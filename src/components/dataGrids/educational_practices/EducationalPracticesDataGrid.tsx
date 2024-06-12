@@ -1,21 +1,21 @@
 import { DataGrid } from "@mui/x-data-grid";
-import qualExamsGridColumns from "./qualExamsGridColumns";
+import gridColumns from "./gridColumns";
 import { useQuery } from "@tanstack/react-query";
 import queryKeys from "@misc/queryKeys";
-import { QualExamsService } from "@client";
+import { EducationalPracticesService } from "@client";
 import { useNavigate } from "@tanstack/react-router";
 
-export default function QualExamsDataGrid() {
+export default function EducationalPracticesDataGrid() {
   const query = useQuery({
-    queryKey: queryKeys.allQualExams,
-    queryFn: () => QualExamsService.allQualExamsAllGet(),
+    queryKey: queryKeys.allEducationalPractices,
+    queryFn: () => EducationalPracticesService.allEducationalPracticesAllGet(),
     initialData: [],
   });
   const navigate = useNavigate();
   return (
     <DataGrid
       sx={{ "--DataGrid-overlayHeight": "300px" }}
-      columns={qualExamsGridColumns}
+      columns={gridColumns}
       rows={query.data}
       loading={query.isFetching}
       initialState={{
@@ -37,7 +37,7 @@ export default function QualExamsDataGrid() {
       autoHeight
       onRowClick={(params) => {
         navigate({
-          to: "/admin/info/qual_exam",
+          to: "/admin/info/educational_practice",
           search: params.row,
         });
       }}

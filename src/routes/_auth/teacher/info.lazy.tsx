@@ -2,7 +2,7 @@ import { ExamsService } from "@client";
 import AddQuestion from "@components/forms/AddQuestion";
 import DeleteQuestion from "@components/forms/DeleteQuestion";
 import { useQuery } from "@tanstack/react-query";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { Link, createLazyFileRoute } from "@tanstack/react-router";
 
 const InfoPage = () => {
   const search = Route.useSearch();
@@ -23,26 +23,25 @@ const InfoPage = () => {
         {`${search.teacher.surname} ${search.teacher.name} ${search.teacher.patronymic ?? ""}`}
       </p>
       <p>Семместр: {search.semester}</p>
-      <h2>Темы и вопросы</h2>
-      {themesQuery.data.map((theme, index) => (
-        <>
-          <h3 key={index}>{theme.name}</h3>
-          {theme.questions.length ? (
-            theme.questions.map((question, index) => (
-              <p
-                key={index}
-              >{`${index + 1}) ${question.name} - ${question.is_task_question ? "усложенный вопрос" : "вопрос обычной сложности"}`}</p>
-            ))
-          ) : (
-            <p>Вопросы ещё не заданы</p>
-          )}
-          <AddQuestion theme_id={theme.id} themesQuery={themesQuery} />
-          <DeleteQuestion
-            themesQuery={themesQuery}
-            questions={theme.questions}
-          />
-        </>
-      ))}
+      {!themesQuery.data?.filter((value) => value.questions.length === 0)
+        .length &&
+        themesQuery.data?.length && (
+          <Link to="/teacher/tickets">Перейти к созданию билетов</Link>
+        )}
+      <h2>Темы</h2>
+      {themesQuery.data.length ? (
+        themesQuery.data.map((theme, index) => (
+          <>
+            <Link to="/teacher/theme_info" search={theme} key={index}>
+              {theme.name}
+            </Link>
+            <br />
+            <br />
+          </>
+        ))
+      ) : (
+        <p>Темы ещё не созданы</p>
+      )}
     </>
   );
 };

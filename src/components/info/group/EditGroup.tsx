@@ -21,7 +21,7 @@ export default function EditGroup({ search }: { search: UpdateGroupRequest }) {
   );
   return (
     <form onSubmit={onSubmit}>
-      <h2>Редактирование названия</h2>
+      <h2>Редактирование</h2>
       <Grid
         container
         sx={{
@@ -36,6 +36,15 @@ export default function EditGroup({ search }: { search: UpdateGroupRequest }) {
           <TextField
             label="Название*"
             {...form.register("name", {
+              required: true,
+              pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
+            })}
+          />
+        </Grid>
+        <Grid item>
+          <TextField
+            label="Специальность*"
+            {...form.register("speciality", {
               required: true,
               pattern: { value: /^[^\s]+(?:$|.*[^\s]+$)/, message: "Ошибка" },
             })}

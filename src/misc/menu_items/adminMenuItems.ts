@@ -21,11 +21,6 @@ const adminMenuItems: MenuItem[] = [
     link: "/admin/exams",
     icon: "../src/assets/menu_icons/exams.svg",
   },
-  // {
-  //   name: "Квал. Экзамены",
-  //   link: "/admin/qual_exams",
-  //   icon: "../src/assets/menu_icons/admin/qualification_exams.svg",
-  // },
   {
     name: "Группы",
     link: "/admin/groups",
@@ -40,6 +35,21 @@ const adminMenuItems: MenuItem[] = [
     name: "Компетенции",
     link: "/admin/competencies",
     icon: "../src/assets/menu_icons/admin/competencies.svg",
+  },
+  {
+    name: "ВКР",
+    link: "/admin/graduate_theses",
+    icon: "../src/assets/menu_icons/admin/document.svg",
+  },
+  {
+    name: "Курсовые работы",
+    link: "/admin/course_works",
+    icon: "../src/assets/menu_icons/admin/document.svg",
+  },
+  {
+    name: "Учебные практики",
+    link: "/admin/educational_practices",
+    icon: "../src/assets/menu_icons/admin/document.svg",
   },
 ];
 
