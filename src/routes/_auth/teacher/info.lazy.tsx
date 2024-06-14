@@ -1,6 +1,4 @@
 import { ExamsService } from "@client";
-import AddQuestion from "@components/forms/AddQuestion";
-import DeleteQuestion from "@components/forms/DeleteQuestion";
 import { useQuery } from "@tanstack/react-query";
 import { Link, createLazyFileRoute } from "@tanstack/react-router";
 
@@ -26,7 +24,9 @@ const InfoPage = () => {
       {!themesQuery.data?.filter((value) => value.questions.length === 0)
         .length &&
         themesQuery.data?.length && (
-          <Link to="/teacher/tickets">Перейти к созданию билетов</Link>
+          <Link to="/teacher/tickets" search={themesQuery.data}>
+            Перейти к созданию билетов
+          </Link>
         )}
       <h2>Темы</h2>
       {themesQuery.data.length ? (

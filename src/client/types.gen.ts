@@ -573,9 +573,9 @@ export type $OpenApiTs = {
     get: {
       req: {
         examId: string;
-        isA4PaperFormat: boolean;
         questionsCount: number;
         taskQuestionsCount: number;
+        ticketsCount: number;
       };
       res: {
         /**

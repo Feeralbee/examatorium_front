@@ -132,7 +132,11 @@ export default function EditExam({ search }: { search: UpdateExamRequest }) {
             type="number"
             label={"Семестр"}
             sx={{ width: 100 }}
-            {...form.register("semester", { required: true })}
+            {...form.register("semester", {
+              required: true,
+              min: 1,
+              valueAsNumber: true,
+            })}
           />
         </Grid>
         <Button type="submit">Изменить</Button>

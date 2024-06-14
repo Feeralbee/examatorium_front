@@ -141,6 +141,7 @@ const CreateExamPage = () => {
               {...form.register("semester", {
                 required: true,
                 valueAsNumber: true,
+                min: 1,
               })}
             />
           </Grid>

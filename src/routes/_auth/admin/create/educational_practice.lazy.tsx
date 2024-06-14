@@ -73,7 +73,7 @@ const CreateCourseWorkPage = () => {
               {...form.register("hours_count", {
                 required: true,
                 valueAsNumber: true,
-                min: 0,
+                min: 1,
               })}
             />
           </Grid>

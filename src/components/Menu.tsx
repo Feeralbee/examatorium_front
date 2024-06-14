@@ -21,7 +21,7 @@ const Menu = () => {
             className="menu-item"
             activeProps={{ className: "menu-item-active" }}
           >
-            <img src={menuItem.icon} />
+            {/* <img src={menuItem.icon} /> */}
             {menuItem.name}
           </Link>
         ))}

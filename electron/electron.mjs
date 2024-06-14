@@ -9,10 +9,18 @@ const createWindow = () => {
     minWidth: 1000,
     minHeight: 700,
     backgroundColor: "#ebebeb",
+    webPreferences: {
+      webSecurity: false,
+    },
+    icon: "./public/owl-logo.ico",
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL(isDev ? "http://localhost:7000" : "file://index.html");
+  if (isDev) {
+    mainWindow.loadURL("http://localhost:7000");
+  } else {
+    mainWindow.loadURL("http://185.247.185.176:80/");
+  }
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -21,6 +29,8 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+app.commandLine.appendSwitch("disable-features", "OutOfBlinkCors");
+app.commandLine.appendSwitch("disable-site-isolation-trials");
 app.whenReady().then(() => {
   createWindow();
 

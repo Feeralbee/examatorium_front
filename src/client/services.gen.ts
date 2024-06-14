@@ -408,7 +408,7 @@ export class ExamsService {
    * Tickets
    * @param data The data for the request.
    * @param data.examId
-   * @param data.isA4PaperFormat
+   * @param data.ticketsCount
    * @param data.questionsCount
    * @param data.taskQuestionsCount
    * @returns unknown Successful Response
@@ -422,7 +422,7 @@ export class ExamsService {
       url: "/exams/tickets",
       query: {
         exam_id: data.examId,
-        is_a4_paper_format: data.isA4PaperFormat,
+        tickets_count: data.ticketsCount,
         questions_count: data.questionsCount,
         task_questions_count: data.taskQuestionsCount,
       },

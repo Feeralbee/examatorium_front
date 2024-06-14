@@ -2,17 +2,24 @@
   "name": "examatorium_front",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
-  "main": "electron/electron.js",
+  "type": "commonjs",
+  "main": "electron/electron.mjs",
+  "author": {
+    "name": "Vladislav"
+  },
+  "description": "examatorium",
   "scripts": {
     "electron": "cross-env IS_DEV=true electron .",
     "electron-vite": "concurrently -k \"npm run dev\" \"npm run electron\"",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "generate-client": "openapi-ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -23,6 +30,7 @@
     "@tanstack/react-router": "^1.29.2",
     "@tanstack/react-store": "^0.3.1",
     "axios": "^1.6.8",
+    "electron-squirrel-startup": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.3",
@@ -32,6 +40,15 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "@electron/packager": "^18.3.2",
     "@hey-api/openapi-ts": "^0.42.1",
     "@tanstack/router-devtools": "^1.31.26",
     "@tanstack/router-vite-plugin": "^1.30.0",
